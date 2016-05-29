@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gulp安装教程 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="此教程适合纯小白，大神请自飞。
+目的：带你飞进前端自动化的世界，碾压传统开发方式首先你要记住：整个过程so easy！开撸：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp安装教程">
+<meta property="og:url" content="http://yoursite.com/2015/08/25/gulp安装教程/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="此教程适合纯小白，大神请自飞。
+目的：带你飞进前端自动化的世界，碾压传统开发方式首先你要记住：整个过程so easy！开撸：">
+<meta property="og:updated_time" content="2015-08-28T01:21:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp安装教程">
+<meta name="twitter:description" content="此教程适合纯小白，大神请自飞。
+目的：带你飞进前端自动化的世界，碾压传统开发方式首先你要记住：整个过程so easy！开撸：">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gulp安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/25/gulp安装教程/" class="article-date">
+  <time datetime="2015-08-25T07:15:04.000Z" itemprop="datePublished">2015-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gulp安装教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此教程适合纯小白，大神请自飞。</p>
+<h2 id="目的：带你飞进前端自动化的世界，碾压传统开发方式"><a href="#目的：带你飞进前端自动化的世界，碾压传统开发方式" class="headerlink" title="目的：带你飞进前端自动化的世界，碾压传统开发方式"></a>目的：带你飞进前端自动化的世界，碾压传统开发方式</h2><p>首先你要记住：整个过程so easy！<br>开撸：<br><a id="more"></a></p>
+<h3 id="第一步：安装Node"><a href="#第一步：安装Node" class="headerlink" title="第一步：安装Node"></a>第一步：安装Node</h3><ul>
+<li><p>下载Node<br>gulp是基于Node环境的，所以我们需要去 <a href="http://nodejs.org" target="_blank" rel="external">Node官网</a> 下载Node(中间那个大大的绿色    <code>install</code> 按钮)，来搭建Node环境。</p>
+</li>
+<li><p>安装Node<br>Node的安装非常简单，一路Next到底；</p>
+</li>
+<li><p>检测Node<br>为了确保Node已经正确安装，我们需要执行以下几步：</p>
+</li>
+</ul>
+<ol>
+<li>我们打开开始菜单，点击所有程序，找到Node.js文件夹内的Node.js程序，然后运行它（当然你也可以使用windows自带的命令行工具cmd）。</li>
+<li>在命令行内输入如下命令</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v		//然后回车（enter）</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果安装正确你会看到你所安装的Node的版本号；</p>
+</blockquote>
+<ul>
+<li>检测npm<br>首先说下npm，npm是基于命令行的node包管理工具，它可以将node的程序模块安装到项目中，在它的 <a href="https://npmjs.org/" target="_blank" rel="external">官网</a> 中可以查看和搜索所有可用的程序模块。我们刚才在安装Node的时候已经安装过npm了，接下来我们要做的只是检测是否安装正确（这一步个人觉得完全没必要，但是我是写给纯小白的，还是顺带说下吧。）</li>
+</ul>
+<p>在命令行内输入如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v		//然后回车（enter）</span><br></pre></td></tr></table></figure>
+<p>同上得到版本号为安装正确；</p>
+<blockquote>
+<p>按照以上步骤若没得到版本号，请自行卸载Node，重新安装；</p>
+</blockquote>
+<h3 id="第二步：安装gulp"><a href="#第二步：安装gulp" class="headerlink" title="第二步：安装gulp"></a>第二步：安装gulp</h3><p>首先自建一个文件夹，比如在D盘新建一个叫test的文件夹；然后：</p>
+<ul>
+<li>在命令行中定位到你所建的文件夹；命令如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:		//回车（enter）</span><br><span class="line">cd test		//回车（enter）</span><br></pre></td></tr></table></figure>
+<p>这样就定位到test文件夹内了</p>
+<ul>
+<li>然后开始安装gulp啦，继续在刚才的命令行内输入如下代码（也可以新建命令行，因为这是全局安装，命令行的文件夹定位并不能决定它的安装位置）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>-g 表示全局安装，方便任何项目都能够使用它</li>
+<li>install是npm执行的安装命令</li>
+</ol>
+</blockquote>
+<ul>
+<li>检测gulp是否安装正确</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br></pre></td></tr></table></figure>
+<p>若看到版本号，表示安装成功；若没有重装咯。</p>
+<ul>
+<li>接下来在本地项目中（也就是刚才新建的test文件夹内）安装gulp；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp —-save-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>—-save-dev是用来表明项目依赖于gulp；</p>
+</blockquote>
+<p>这时我们发现test文件夹内已经多了一个名为<code>node_modules</code>的文件夹；这表明安装成功了。</p>
+<h3 id="第三步：生成package-json文件"><a href="#第三步：生成package-json文件" class="headerlink" title="第三步：生成package.json文件"></a>第三步：生成package.json文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>然后一路回车（enter），这是你发现test文件夹内已经多了一个名为package.json的文件；这个文件内的<code>devDependencies</code>是空白的，这里我们先记下等会要用上</p>
+<h3 id="第四步：安装gulp插件"><a href="#第四步：安装gulp插件" class="headerlink" title="第四步：安装gulp插件"></a>第四步：安装gulp插件</h3><p>到目前为止我们的gulp已经安装完成，下面我们说下gulp插件，告诉大家如何在项目中运用这些插件；</p>
+<ul>
+<li>比较长用的插件有：</li>
+</ul>
+<ol>
+<li>gulp-htmlmin       //压缩html</li>
+<li>gulp-minify-css  //压缩css</li>
+<li>gulp-uglify      //压缩js</li>
+<li>gulp-jshint        //检测js</li>
+<li>gulp-rename      //重命名</li>
+<li>gulp-concat      //合并文件</li>
+</ol>
+<ul>
+<li>安装这些插件：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-htmlmin gulp-minify-css gulp-uglify gulp-jshint gulp-jshint gulp-rename gulp-concat --save-dev</span><br></pre></td></tr></table></figure>
+<p>然后回车（enter），这时打开test/node_modules文件夹，你会发现这些插件都已经在里面啦，打开package.json文件，找到<code>devDependencies</code>,里面已经生成好了插件的名称以及版本号；这得力于–save-dev；</p>
+<h3 id="第五步：配置gulpfile-js文件"><a href="#第五步：配置gulpfile-js文件" class="headerlink" title="第五步：配置gulpfile.js文件"></a>第五步：配置gulpfile.js文件</h3><p>在项目根目录（test文件夹）建立gulpfile.js文件</p>
+<p>配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// 引入 gulp及组件</span><br><span class="line">var gulp    = require(&apos;gulp&apos;),                 //基础库</span><br><span class="line">    htmlmin = require(&apos;gulp-htmlmin&apos;),         //压缩html</span><br><span class="line">    minifycss = require(&apos;gulp-minify-css&apos;),    //压缩css</span><br><span class="line">    uglify  = require(&apos;gulp-uglify&apos;),          //压缩js</span><br><span class="line">    jshint = require(&apos;gulp-jshint&apos;),           //检查js</span><br><span class="line">    rename = require(&apos;gulp-rename&apos;),           //重命名</span><br><span class="line">    concat  = require(&apos;gulp-concat&apos;),          //合并文件</span><br><span class="line"></span><br><span class="line">// 压缩html</span><br><span class="line">gulp.task(&apos;htmlmin&apos;, function() &#123;</span><br><span class="line">    gulp.src(&apos;src/*.html&apos;)      //压缩的文件</span><br><span class="line">    .pipe(gulp.dest(&apos;minified/html&apos;))   //输出文件夹</span><br><span class="line">    .pipe(htmlmin());   //执行压缩</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 压缩css</span><br><span class="line">gulp.task(&apos;minifycss&apos;, function() &#123;</span><br><span class="line">    gulp.src(&apos;src/*.css&apos;)      //压缩的文件</span><br><span class="line">    .pipe(gulp.dest(&apos;minified/css&apos;))   //输出文件夹</span><br><span class="line">    .pipe(minifycss());   //执行压缩</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// js处理</span><br><span class="line">gulp.task(&apos;minifyjs&apos;, function() &#123;</span><br><span class="line">    gulp.src(&apos;src/*.js&apos;)</span><br><span class="line">    .pipe(concat(&apos;main.js&apos;))    //合并所有js到main.js</span><br><span class="line">    .pipe(gulp.dest(&apos;minified/js&apos;))    //输出main.js到文件夹</span><br><span class="line">    .pipe(rename(&#123;suffix: &apos;.min&apos;&#125;))   //rename压缩后的文件名</span><br><span class="line">    .pipe(uglify())    //压缩</span><br><span class="line">    .pipe(gulp.dest(&apos;minified/js&apos;));  //输出</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//执行压缩前，先删除文件夹里的内容</span><br><span class="line">gulp.task(&apos;clean&apos;, function(cb) &#123;</span><br><span class="line">    del([&apos;minified/css&apos;, &apos;minified/js&apos;], cb)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//默认命令，在命令行中输入gulp后，执行的就是这个命令</span><br><span class="line">gulp.task(&apos;default&apos;, [&apos;clean&apos;], function() &#123;</span><br><span class="line">    gulp.start(&apos;minifycss&apos;, &apos;minifyjs&apos;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 默认任务</span><br><span class="line">gulp.task(&apos;default&apos;, function()&#123;</span><br><span class="line">    gulp.run(&apos;htmlmin&apos;, &apos;minifycss&apos;, &apos;minifyjs&apos;);</span><br><span class="line"></span><br><span class="line">    // 监听文件变化 运行语句 gulp watch</span><br><span class="line">    gulp.watch(&apos;minified/js/*.js&apos;, function()&#123;</span><br><span class="line">        gulp.run(&apos;htmlmin&apos;, &apos;minifycss&apos;, &apos;minifyjs&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/25/gulp安装教程/" data-id="ciorxxkbs0001mo2qfvh7gpul" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/28/我的随笔/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          我的随笔
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/25/前端工程化：在gulp中顺序执行任务/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">前端工程化：在gulp中顺序执行任务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/essay/">essay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/">video</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/essay/" style="font-size: 20px;">essay</a> <a href="/tags/gulp/" style="font-size: 13.33px;">gulp</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/video/" style="font-size: 10px;">video</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/29/mac下安装hexo/">mac下安装hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/29/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/06/javascript第二弹——函数/">javascript第二弹——函数</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/30/javascript对象/">javascript第一弹——对象</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/15/博客迁移-发表于2014-7-23/">博客迁移：激情在安稳中燃烧[发表于2014.7.23]</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
