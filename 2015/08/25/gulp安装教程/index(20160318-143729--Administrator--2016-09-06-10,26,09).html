@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gulp安装教程 | 前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="此教程适合纯小白，大神请自飞。
+目的：带你飞进前端自动化的世界，碾压传统开发方式首先你要记住：整个过程so easy！开撸：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp安装教程">
+<meta property="og:url" content="http://wyang.club/2015/08/25/gulp安装教程/index.html">
+<meta property="og:site_name" content="前端之路">
+<meta property="og:description" content="此教程适合纯小白，大神请自飞。
+目的：带你飞进前端自动化的世界，碾压传统开发方式首先你要记住：整个过程so easy！开撸：">
+<meta property="og:updated_time" content="2015-08-28T01:21:12.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp安装教程">
+<meta name="twitter:description" content="此教程适合纯小白，大神请自飞。
+目的：带你飞进前端自动化的世界，碾压传统开发方式首先你要记住：整个过程so easy！开撸：">
+  
+    <link rel="alternative" href="/atom.xml" title="前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xldmz.com1.z0.glb.clouddn.com/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?7e9b774cafc3444168262f5a6fdc4ee9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wyang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">从前有座山山里住着一个大妖怪</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">存档</a></li>
+				        
+							<li><a href="/tags/essay">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wy-ang" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://www.weibo.com/wyang1117" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://wyang.club/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/badmonster" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/essay/" style="font-size: 20px;">essay</a> <a href="/tags/gulp/" style="font-size: 13.33px;">gulp</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/video/" style="font-size: 10px;">video</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.wincould.com/">前端嗅觉</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://bbs.wxqing.com/forum.php/">前端学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.wxqing.com/">微心情</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wy.wxqing.com/">怪兽窝</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">爱民谣、爱电音、爱捣鼓，梦想是当一名作家，写着风花雪月的小说，过着自由散漫的生活，午后的阳光洒在她的身上，我们相视一笑。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wyang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wyang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">从前有座山山里住着一个大妖怪</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">存档</a></li>
+		        
+					<li><a href="/tags/essay">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wy-ang" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/wyang1117" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://wyang.club/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/badmonster" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-gulp安装教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/25/gulp安装教程/" class="article-date">
+  	<time datetime="2015-08-25T07:15:04.000Z" itemprop="datePublished">2015-08-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gulp安装教程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此教程适合纯小白，大神请自飞。</p>
+<h2 id="目的：带你飞进前端自动化的世界，碾压传统开发方式">目的：带你飞进前端自动化的世界，碾压传统开发方式</h2><p>首先你要记住：整个过程so easy！<br>开撸：<br><a id="more"></a></p>
+<h3 id="第一步：安装Node">第一步：安装Node</h3><ul>
+<li><p>下载Node<br>gulp是基于Node环境的，所以我们需要去 <a href="http://nodejs.org" target="_blank" rel="external">Node官网</a> 下载Node(中间那个大大的绿色    <code>install</code> 按钮)，来搭建Node环境。</p>
+</li>
+<li><p>安装Node<br>Node的安装非常简单，一路Next到底；</p>
+</li>
+<li><p>检测Node<br>为了确保Node已经正确安装，我们需要执行以下几步：</p>
+</li>
+</ul>
+<ol>
+<li>我们打开开始菜单，点击所有程序，找到Node.js文件夹内的Node.js程序，然后运行它（当然你也可以使用windows自带的命令行工具cmd）。</li>
+<li>在命令行内输入如下命令</li>
+</ol>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v		<span class="comment">//然后回车（enter）</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果安装正确你会看到你所安装的Node的版本号；</p>
+</blockquote>
+<ul>
+<li>检测npm<br>首先说下npm，npm是基于命令行的node包管理工具，它可以将node的程序模块安装到项目中，在它的 <a href="https://npmjs.org/" target="_blank" rel="external">官网</a> 中可以查看和搜索所有可用的程序模块。我们刚才在安装Node的时候已经安装过npm了，接下来我们要做的只是检测是否安装正确（这一步个人觉得完全没必要，但是我是写给纯小白的，还是顺带说下吧。）</li>
+</ul>
+<p>在命令行内输入如下命令</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v		<span class="comment">//然后回车（enter）</span></span><br></pre></td></tr></table></figure>
+<p>同上得到版本号为安装正确；</p>
+<blockquote>
+<p>按照以上步骤若没得到版本号，请自行卸载Node，重新安装；</p>
+</blockquote>
+<h3 id="第二步：安装gulp">第二步：安装gulp</h3><p>首先自建一个文件夹，比如在D盘新建一个叫test的文件夹；然后：</p>
+<ul>
+<li>在命令行中定位到你所建的文件夹；命令如下</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">D</span>:		<span class="comment">//回车（enter）</span></span><br><span class="line"><span class="keyword">cd</span> <span class="keyword">test</span>		<span class="comment">//回车（enter）</span></span><br></pre></td></tr></table></figure>
+<p>这样就定位到test文件夹内了</p>
+<ul>
+<li>然后开始安装gulp啦，继续在刚才的命令行内输入如下代码（也可以新建命令行，因为这是全局安装，命令行的文件夹定位并不能决定它的安装位置）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> gulp -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>-g 表示全局安装，方便任何项目都能够使用它</li>
+<li>install是npm执行的安装命令</li>
+</ol>
+</blockquote>
+<ul>
+<li>检测gulp是否安装正确</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">gulp</span> -v</span><br></pre></td></tr></table></figure>
+<p>若看到版本号，表示安装成功；若没有重装咯。</p>
+<ul>
+<li>接下来在本地项目中（也就是刚才新建的test文件夹内）安装gulp；</li>
+</ul>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp —-<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>—-save-dev是用来表明项目依赖于gulp；</p>
+</blockquote>
+<p>这时我们发现test文件夹内已经多了一个名为<code>node_modules</code>的文件夹；这表明安装成功了。</p>
+<h3 id="第三步：生成package-json文件">第三步：生成package.json文件</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br></pre></td></tr></table></figure>
+<p>然后一路回车（enter），这是你发现test文件夹内已经多了一个名为package.json的文件；这个文件内的<code>devDependencies</code>是空白的，这里我们先记下等会要用上</p>
+<h3 id="第四步：安装gulp插件">第四步：安装gulp插件</h3><p>到目前为止我们的gulp已经安装完成，下面我们说下gulp插件，告诉大家如何在项目中运用这些插件；</p>
+<ul>
+<li>比较长用的插件有：</li>
+</ul>
+<ol>
+<li>gulp-htmlmin       //压缩html</li>
+<li>gulp-minify-css  //压缩css</li>
+<li>gulp-uglify      //压缩js</li>
+<li>gulp-jshint        //检测js</li>
+<li>gulp-rename      //重命名</li>
+<li>gulp-concat      //合并文件</li>
+</ol>
+<ul>
+<li>安装这些插件：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> gulp-htmlmin gulp-minify-css gulp-uglify gulp-jshint gulp-jshint gulp-rename gulp-<span class="keyword">concat</span> <span class="comment">--save-dev</span></span></span><br></pre></td></tr></table></figure>
+<p>然后回车（enter），这时打开test/node_modules文件夹，你会发现这些插件都已经在里面啦，打开package.json文件，找到<code>devDependencies</code>,里面已经生成好了插件的名称以及版本号；这得力于–save-dev；</p>
+<h3 id="第五步：配置gulpfile-js文件">第五步：配置gulpfile.js文件</h3><p>在项目根目录（test文件夹）建立gulpfile.js文件</p>
+<p>配置如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 gulp及组件</span></span><br><span class="line"><span class="keyword">var</span> gulp    = <span class="built_in">require</span>(<span class="string">'gulp'</span>),                 <span class="comment">//基础库</span></span><br><span class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),         <span class="comment">//压缩html</span></span><br><span class="line">    minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>),    <span class="comment">//压缩css</span></span><br><span class="line">    uglify  = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),          <span class="comment">//压缩js</span></span><br><span class="line">    jshint = <span class="built_in">require</span>(<span class="string">'gulp-jshint'</span>),           <span class="comment">//检查js</span></span><br><span class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),           <span class="comment">//重命名</span></span><br><span class="line">    concat  = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>),          <span class="comment">//合并文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩html</span></span><br><span class="line">gulp.task(<span class="string">'htmlmin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.html'</span>)      <span class="comment">//压缩的文件</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/html'</span>))   <span class="comment">//输出文件夹</span></span><br><span class="line">    .pipe(htmlmin());   <span class="comment">//执行压缩</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩css</span></span><br><span class="line">gulp.task(<span class="string">'minifycss'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.css'</span>)      <span class="comment">//压缩的文件</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/css'</span>))   <span class="comment">//输出文件夹</span></span><br><span class="line">    .pipe(minifycss());   <span class="comment">//执行压缩</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// js处理</span></span><br><span class="line">gulp.task(<span class="string">'minifyjs'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.js'</span>)</span><br><span class="line">    .pipe(concat(<span class="string">'main.js'</span>))    <span class="comment">//合并所有js到main.js</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/js'</span>))    <span class="comment">//输出main.js到文件夹</span></span><br><span class="line">    .pipe(rename(&#123;suffix: <span class="string">'.min'</span>&#125;))   <span class="comment">//rename压缩后的文件名</span></span><br><span class="line">    .pipe(uglify())    <span class="comment">//压缩</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/js'</span>));  <span class="comment">//输出</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行压缩前，先删除文件夹里的内容</span></span><br><span class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">    del([<span class="string">'minified/css'</span>, <span class="string">'minified/js'</span>], cb)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认命令，在命令行中输入gulp后，执行的就是这个命令</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.start(<span class="string">'minifycss'</span>, <span class="string">'minifyjs'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认任务</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.run(<span class="string">'htmlmin'</span>, <span class="string">'minifycss'</span>, <span class="string">'minifyjs'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听文件变化 运行语句 gulp watch</span></span><br><span class="line">    gulp.watch(<span class="string">'minified/js/*.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        gulp.run(<span class="string">'htmlmin'</span>, <span class="string">'minifycss'</span>, <span class="string">'minifyjs'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/28/我的随笔/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          我的随笔
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/25/前端工程化：在gulp中顺序执行任务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端工程化：在gulp中顺序执行任务</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="gulp安装教程" data-title="gulp安装教程" data-url="http://wyang.club/2015/08/25/gulp安装教程/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 wyang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script async src="http://7xldmz.com1.z0.glb.clouddn.com/js/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

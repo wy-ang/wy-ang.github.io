@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript第一弹——对象 | 前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、 什么是对象对象是包含一组变量（称为属性）和函数（称为方法）的集合的实例。
+javascript中大部分事物都是对象（有不同观点请留言讨论）
+javascript有很多内建对象
+javascript允许自定义对象
+对象只是带有属性和方法的特殊数据类型
+对象的属性是存储装载信息（属性值）的，可以理解为变量
+对象的方法是执行其内部所包含的代码块的，可以理解为函数
+
+注：以下所指对象均为自定义对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript第一弹——对象">
+<meta property="og:url" content="http://wyang.club/2015/10/30/javascript对象/index.html">
+<meta property="og:site_name" content="前端之路">
+<meta property="og:description" content="一、 什么是对象对象是包含一组变量（称为属性）和函数（称为方法）的集合的实例。
+javascript中大部分事物都是对象（有不同观点请留言讨论）
+javascript有很多内建对象
+javascript允许自定义对象
+对象只是带有属性和方法的特殊数据类型
+对象的属性是存储装载信息（属性值）的，可以理解为变量
+对象的方法是执行其内部所包含的代码块的，可以理解为函数
+
+注：以下所指对象均为自定义对象">
+<meta property="og:updated_time" content="2015-11-06T03:50:08.375Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript第一弹——对象">
+<meta name="twitter:description" content="一、 什么是对象对象是包含一组变量（称为属性）和函数（称为方法）的集合的实例。
+javascript中大部分事物都是对象（有不同观点请留言讨论）
+javascript有很多内建对象
+javascript允许自定义对象
+对象只是带有属性和方法的特殊数据类型
+对象的属性是存储装载信息（属性值）的，可以理解为变量
+对象的方法是执行其内部所包含的代码块的，可以理解为函数
+
+注：以下所指对象均为自定义对象">
+  
+    <link rel="alternative" href="/atom.xml" title="前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xldmz.com1.z0.glb.clouddn.com/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?7e9b774cafc3444168262f5a6fdc4ee9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wyang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">从前有座山山里住着一个大妖怪</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">存档</a></li>
+				        
+							<li><a href="/tags/essay">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wy-ang" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://www.weibo.com/wyang1117" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://wyang.club/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/badmonster" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/essay/" style="font-size: 20px;">essay</a> <a href="/tags/gulp/" style="font-size: 13.33px;">gulp</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/video/" style="font-size: 10px;">video</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.wincould.com/">前端嗅觉</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://bbs.wxqing.com/forum.php/">前端学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.wxqing.com/">微心情</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wy.wxqing.com/">怪兽窝</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">爱民谣、爱电音、爱捣鼓，梦想是当一名作家，写着风花雪月的小说，过着自由散漫的生活，午后的阳光洒在她的身上，我们相视一笑。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wyang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wyang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">从前有座山山里住着一个大妖怪</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">存档</a></li>
+		        
+					<li><a href="/tags/essay">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wy-ang" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/wyang1117" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://wyang.club/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/badmonster" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-javascript对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/30/javascript对象/" class="article-date">
+  	<time datetime="2015-10-30T09:15:43.000Z" itemprop="datePublished">2015-10-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript第一弹——对象
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、_什么是对象">一、 什么是对象</h3><pre><code>对象是包含一组变量（称为属性）和函数（称为方法）的集合的实例。
+javascript中大部分事物都是对象（有不同观点请留言讨论）
+javascript有很多内建对象
+javascript允许自定义对象
+对象只是带有属性和方法的特殊数据类型
+对象的属性是存储装载信息（属性值）的，可以理解为变量
+对象的方法是执行其内部所包含的代码块的，可以理解为函数
+</code></pre><blockquote>
+<p>注：以下所指对象均为自定义对象</p>
+</blockquote>
+<h3 id="二、_怎么创建对象">二、 怎么创建对象</h3><a id="more"></a>
+<p>1、实例创建</p>
+<pre><code><span class="comment">//创建一个对象的实例</span>
+<span class="keyword">var</span> handsomeMan = <span class="keyword">new</span> <span class="built_in">Object</span>();
+handsomeMan.name=<span class="string">'wyang'</span>;
+</code></pre><blockquote>
+<p>字面量写法如下：</p>
+</blockquote>
+<pre><code><span class="variable"><span class="keyword">var</span> handsomeMan</span> = {};
+</code></pre><p>2、工厂模式</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">handsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();
+    o.name = <span class="string">'wyang'</span>;
+    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);    <span class="comment">//wyang</span>
+    }
+    <span class="keyword">return</span> o;
+}
+<span class="keyword">var</span> me = handsomeMan();    <span class="comment">//经典工厂模式</span>
+<span class="keyword">var</span> me = <span class="keyword">new</span> handsomeMan();    <span class="comment">//混合工厂模式</span>
+me.sayName();
+</code></pre><blockquote>
+<p>为了避免重复创建<code>sayName</code>方法,把上面的代码做了如下改进：</p>
+</blockquote>
+<pre><code><span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.name;    <span class="comment">//wyang</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();
+    o.name = <span class="string">'wyang'</span>;
+    o.sayName = sayName;
+}
+<span class="keyword">var</span> me = HandsomeMan();
+me.sayName();
+</code></pre><p>3、构造函数</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">this</span>.name = <span class="string">'wyang'</span>;
+    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);    <span class="comment">//wyang</span>
+    }
+}
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><blockquote>
+<p>为了避免重复创建<code>sayName</code>方法,把上面的代码做了如下改进：</p>
+</blockquote>
+<pre><code><span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.name;    <span class="comment">//wyang</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.name = <span class="string">'wyang'</span>;
+    <span class="keyword">this</span>.sayName = sayName;
+}
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><p>4、原型模式</p>
+<pre><code><span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.name;    <span class="comment">//wyang</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span><span class="params">()</span></span>{};
+HandsomeMan.prototype.name = <span class="string">'wyang'</span>;
+HandsomeMan.prototype.sayName = sayName;
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><p>5、混合模式（构造函数模式+原型模式）</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">this</span>.name = <span class="string">'wyang'</span>;
+}
+HandsomeMan.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);    <span class="comment">//wyang</span>
+}
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><h3 id="三、_对象的属性是什么？">三、 对象的属性是什么？</h3><blockquote>
+<p>属性是存储装载其所对应对象的一些信息的容器；<br>对象中的属性是无序的，每一个属性都有一个字符串key和对应的 value;<br>不管设置的属性是否是字符串，javascript都会把它转换为字符串;</p>
+</blockquote>
+<p>1、属性是可以动态添加或删除的。如下：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;<span class="comment">;</span></span><br><span class="line">obj.x = 1<span class="comment">;</span></span><br><span class="line">obj.y = 2<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、对象中的每一个属性都有很多的属性标签，比如：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">writable：能否修改属性的值; 默认值为 <span class="literal">true</span>;</span><br><span class="line">enumerable：能否通过 <span class="keyword">for</span>-<span class="keyword">in</span>循环返回属性（是否可枚举）; 默认值为 <span class="literal">true</span>;</span><br><span class="line">configurable：能否删除、重新定义、修改属性特性、把属性修改为访问器属性/数据属性（是否能够配置）; 默认值为<span class="literal">true</span>;</span><br><span class="line">value：属性的数据值；可读写; 默认值为 <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">get</span>/<span class="keyword">set</span>：</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="扩展：原型链">扩展：原型链</h4></li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">HandsomeMan.prototype.name = <span class="string">'wyang'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例化对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> HandsomeMan();</span><br><span class="line">obj.age = <span class="number">26</span>;</span><br><span class="line">obj.hobby = <span class="string">'programme'</span>;</span><br><span class="line"></span><br><span class="line">obj.age    <span class="comment">//26</span></span><br><span class="line">obj.hobby    <span class="comment">//programme</span></span><br><span class="line">obj.name    <span class="comment">//wyang</span></span><br></pre></td></tr></table></figure>
+<p>1）、上面的例子我们先定义了一个<code>HandsomeMan</code>的函数对象；<code>HandsomeMan</code>自带了一个prototype属性，它的属性是对象属性;<br>2）、<code>HandsomeMan.prototype</code>是一个对象；我们把这个对象添加一个属性<code>name</code>并赋值为<code>wyang</code>;<br>3）、用构造器的方式构造了一个新的对象<code>obj</code>；然后给这个对象添加了两个属性并赋值；然后通过访问这两个属性得到属性值；<br>4）、<code>obj</code>这个对象的原型会指向构造器的属性也就是<code>HandsomeMan.prototype</code>;<br>4）、[重点]当用<code>obj.age</code>访问<code>age</code>属性时，发现<code>obj</code>上有<code>age</code>这个属性，所以就会返回<code>26</code>；<code>hobby</code>同理；但是当用<code>obj.name</code>来访问<code>name</code>时；发现<code>obj</code>上面没有<code>name</code>，这时它不会停止查找，而是继续向上查找他的原型也就是<code>HandsomeMan.prototype</code>；然后发现有<code>name</code>这个属性；所以返回<code>wyang</code>；</p>
+<blockquote>
+<p>如果给<code>obj.name</code>赋值，那么<code>HandsomeMan.prototype.name</code>的值会被修改么？</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj.name = <span class="string">'wangyang'</span>;</span><br><span class="line">obj.name    <span class="comment">//wangyang;</span></span><br><span class="line">HandsomeMan.prototype.name    <span class="comment">//wyang</span></span><br></pre></td></tr></table></figure>
+<p>从上面的例子可以看出，如果给<code>obj.name</code>赋值，<code>HandsomeMan.prototype.name</code>的值是不会被修改的。因为<code>obj</code>对象里面有<code>name</code>这个属性，所以不会向上查找；</p>
+<blockquote>
+<p>那么怎么再次通过<code>obj</code>对象拿到原型上的<code>name</code>呢？</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">delete</span> obj.<span class="keyword">name</span>;</span></span><br><span class="line">obj.name   //wyang</span><br></pre></td></tr></table></figure>
+<p>如上代码，通过删除<code>obj.name</code>后，就可以获得原型上的<code>name</code>；实际上这也就是原型链的继承；</p>
+<h3 id="四、_怎么给对象的属性赋值？">四、 怎么给对象的属性赋值？</h3><ul>
+<li>键值对结构用“：”赋值;</li>
+<li>动态结构用“=”赋值；</li>
+</ul>
+<h3 id="五、_如何操作对像的属性？">五、 如何操作对像的属性？</h3><p>1、读写对象的属性<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name <span class="symbol">:</span> <span class="string">'wyang'</span>,</span><br><span class="line">    age <span class="symbol">:</span> <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line">obj.name;    <span class="regexp">//wyang</span></span><br><span class="line">obj[<span class="string">'age'</span>];    <span class="regexp">//</span><span class="number">26</span></span><br><span class="line"></span><br><span class="line">obj.hobby = <span class="string">'programme'</span>;</span><br><span class="line">obj[<span class="string">'eat'</span>] = <span class="string">'food'</span>;    <span class="regexp">//</span>当需要拼接对象的属性名或者用<span class="string">``</span><span class="keyword">for</span> <span class="keyword">in</span><span class="string">``</span>遍历所有属性的时候用‘[]’，其余的场景推荐使用‘.’；</span><br></pre></td></tr></table></figure></p>
+<p>2、属性异常<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    <span class="attribute">age</span>: <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line">obj.name;    <span class="regexp">//</span><span class="literal">undefined</span></span><br><span class="line">obj.name.hobby    <span class="regexp">//</span><span class="attribute">TypeError</span>: Cannot read property <span class="string">'hobby'</span> <span class="keyword">of</span> <span class="literal">undefined</span></span><br><span class="line">obj.name.hobby = <span class="string">'programme'</span>;    <span class="regexp">//</span><span class="attribute">TypeError</span>: Cannot read property <span class="string">'hobby'</span> <span class="keyword">of</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure></p>
+<p>如果想对<code>obj.name</code>这个属性处理一些事情的话；需要先判断下<code>obj.name</code>是否存在：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var nh;     //var nh = obj &amp;&amp; obj.<span class="keyword">name</span> &amp;&amp; obj.<span class="keyword">name</span>.hobby;</span><br><span class="line"><span class="keyword">if</span>(obj.<span class="keyword">name</span>)&#123;</span><br><span class="line">    nh = obj.<span class="keyword">name</span>.hobby</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、删除属性<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name : <span class="string">'wyang'</span>,</span><br><span class="line">    age : <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span> obj.name    <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> obj[<span class="string">'age'</span>]    <span class="comment">//true</span></span><br><span class="line">obj.name    <span class="comment">//undefined</span></span><br><span class="line">obj.age    <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">delete</span> obj.name    <span class="comment">//如果重复删除已经不存在的属性，不会做任何事情，但是属性已经不存在了，javascript仍然会返回true；</span></span><br></pre></td></tr></table></figure></p>
+<p>1）、delete 并不代表操作成功，只是表示这个对象上并不存在这个属性；<br>2）、<code>Object.prototype</code>不能够被删除，因为它的<code>configurable</code>为false；所以删除会返回false；</p>
+<ul>
+<li><h5 id="延伸：全局变量、局部变量、函数声明都不能通过delete被删除；">延伸：全局变量、局部变量、函数声明都不能通过<code>delete</code>被删除；</h5></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">delete</span> a;    <span class="comment">//false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">delete</span> b;</span><br><span class="line">&#125;</span><br><span class="line">a()    <span class="comment">//false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">delete</span> a    <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//隐式创建的变量可以被删除（不推荐使用）</span></span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">window</span>.a;    <span class="comment">//1</span></span><br><span class="line"><span class="keyword">delete</span>.a    <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>4、检测属性<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测对象上是否含有某个属性</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line">obj.name = <span class="string">'wyang'</span>;</span><br><span class="line">obj.age = <span class="number">26</span>;</span><br><span class="line"></span><br><span class="line"><span class="string">'name'</span> <span class="keyword">in</span> obj;    <span class="comment">//true  </span></span><br><span class="line"><span class="string">'hobby'</span> <span class="keyword">in</span> obj;    <span class="comment">//false</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> obj;    <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">obj.hasOwnProperty(<span class="string">'name'</span>);    <span class="comment">//true    ‘obj’这个对象上包含‘name’这个属性；</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'toString'</span>);    <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面的例子可以看出来：<code>in</code>操作符是会通过原型链向上查找的，它是作用于整个原型链的，所以不管是这个对象上的属性还是原型链上的属性都会返回‘true’；<code>hasOwnProperty</code>操作符是针对于当前对象的，不会去通过原型链向上查找；上面例子的‘obj’这个对象上没有包含‘ toString’这个属性；所以返回<code>false</code>；它的原型链上才有‘ toString’这个属性；<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测对象上的某个属性是否可枚举</span></span><br><span class="line">obj.propertyIsEnumerable(<span class="string">'name'</span>);    <span class="comment">//true</span></span><br><span class="line">obj.propertyIsEnumerable(<span class="string">'toString'</span>);    <span class="comment">//false    ‘Object.pertotype’上的大部分标签的‘enumerable’都是false；</span></span><br></pre></td></tr></table></figure></p>
+<p>5、枚举属性<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name : <span class="string">'wyang'</span>,</span><br><span class="line">    age : <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var <span class="variable">$property</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$property</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    console.log(<span class="variable">$property</span>);    //name、age</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面例子通过<code>for in</code>来枚举当前对象上可枚举的属性;</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var o = Object.create(obj);    //通过‘ Object.create’来船舰一个新对象，这个对象的原型指向‘obj’；</span><br><span class="line">o.hobby = <span class="string">'programme'</span>;    //默认可枚举</span><br><span class="line">var <span class="variable">$property</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$property</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    console.log(<span class="variable">$property</span>);    //name、age、hobby</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果只想处理‘o’这个对象上的属性，不想处理这个对象原型链上的属性呢？</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var o = Object.create(obj);    </span><br><span class="line">o.hobby = <span class="string">'programme'</span>;   </span><br><span class="line">var <span class="variable">$property</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$property</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    if(obj.hasOwnProperty(<span class="variable">$property</span>))&#123;    //只枚举当前对象上的属性，过滤掉这个对象原型链上的属性</span><br><span class="line">        console.log(<span class="variable">$property</span>);    //hobby</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6、属性的get/set方法<br>get：在读取属性时调用的函数，默认值为 undefined<br>set：在写入属性时调用的函数，默认值为 undefined<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name : <span class="string">'wyang'</span>,</span><br><span class="line">    <span class="keyword">get</span> age()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear() - <span class="number">1989</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> age(val)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'您不能修改年龄为'</span>+val+<span class="string">'岁！！！'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.age);    <span class="comment">//26</span></span><br><span class="line">obj.age = <span class="number">100</span>;    <span class="comment">//您不能修改年龄为100岁！！！</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.age);    <span class="comment">//26</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="六、什么是方法">六、什么是方法</h3><p>方法是能够在对象上执行的动作。说白了就是包含在对象中的函数</p>
+<h3 id="七、怎么定义对象方法">七、怎么定义对象方法</h3><blockquote>
+<p>暂且不表</p>
+</blockquote>
+<h3 id="八、如何调用对象的方法？">八、如何调用对象的方法？</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objectName.<span class="function"><span class="title">methodName</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="九、对象标签">九、对象标签</h3><p>对象级别的标签主要有三种：[[proto]]、[[class]]、[[extensible]]<br>1、原型链是通过<code>proto</code>这个标签来实现的<br>2、<code>class</code>表示对象是哪一个类型，没有直接的方式去查看或修改它;需要通过间接的手段；<br>3、<code>extensible</code>表示对象是否可扩展</p>
+<h3 id="十、对象序列化">十、对象序列化</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">  <span class="keyword">*</span>后端需要一个字符串格式的数据</span><br><span class="line">  <span class="keyword">*</span>/</span><br><span class="line">var obj = &#123;name:<span class="string">"wyang"</span>,age:26, hobby:[<span class="string">"programme"</span>,<span class="string">"eat"</span>],gf:null,single:true&#125;;</span><br><span class="line">JSON.stringify(obj);    //<span class="string">"&#123;"</span>name<span class="string">":"</span>wyang<span class="string">","</span>age<span class="string">":26, "</span>hobby<span class="string">":["</span>programme<span class="string">","</span>eat<span class="string">"],"</span>gf<span class="string">":null,"</span>single<span class="string">":true&#125;"</span></span><br><span class="line"></span><br><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">  <span class="keyword">*</span>坑：</span><br><span class="line">  <span class="keyword">*</span>1. 如果序列化的值是'undefined'，那么就不会出现在序列化的结果当中</span><br><span class="line">  <span class="keyword">*</span>2. 如果序列化的值是'NaN'、'Infinity'，那么会转换为'null'</span><br><span class="line">  <span class="keyword">*</span>3. 如果序列化的值是时间的话，会转换成UTC的时间格式</span><br><span class="line">  <span class="keyword">*</span>/</span><br><span class="line">var obj = &#123;name:'wyang',age:26, hobby:['programme','eat'],gf:null,single:true,love:undefined,a:NaN,b:Infinity,c:new Date()&#125;;</span><br><span class="line">JSON.stringify(obj);    //<span class="string">"&#123;"</span>name<span class="string">":"</span>wyang<span class="string">","</span>age<span class="string">":26, "</span>hobby<span class="string">":["</span>programme<span class="string">","</span>eat<span class="string">"],"</span>gf<span class="string">":null,"</span>single<span class="string">":true,"</span>a<span class="string">":null,"</span>b<span class="string">":null,"</span>c<span class="string">":"</span>Mon Nov 02 2015 11:39:51 GMT+0800 (中国标准时间)<span class="string">"&#125;"</span></span><br><span class="line"></span><br><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">  <span class="keyword">*</span>后端返回一个json格式的数据，变为js对象</span><br><span class="line">  <span class="keyword">*</span>/</span><br><span class="line">var obj = JOSN.parse('&#123;<span class="string">"name"</span>:<span class="string">"wyang"</span>&#125;');</span><br><span class="line">obj.name    //wyang;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/06/javascript第二弹——函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          javascript第二弹——函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/15/博客迁移-发表于2014-7-23/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客迁移：激情在安稳中燃烧[发表于2014.7.23]</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript对象" data-title="javascript第一弹——对象" data-url="http://wyang.club/2015/10/30/javascript对象/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 wyang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script async src="http://7xldmz.com1.z0.glb.clouddn.com/js/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

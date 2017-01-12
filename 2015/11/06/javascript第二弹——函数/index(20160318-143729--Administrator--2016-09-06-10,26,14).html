@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript第二弹——函数 | 前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是函数函数是一块javascript代码，被定义一次，就可以执行和调用多次；函数也是js对象，所以也可以像对象那样操作和传递；所以我们也把函数称之为函数对象；
+创建函数的几种方法一、函数声明123function a()&amp;#123;    //代码&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript第二弹——函数">
+<meta property="og:url" content="http://wyang.club/2015/11/06/javascript第二弹——函数/index.html">
+<meta property="og:site_name" content="前端之路">
+<meta property="og:description" content="什么是函数函数是一块javascript代码，被定义一次，就可以执行和调用多次；函数也是js对象，所以也可以像对象那样操作和传递；所以我们也把函数称之为函数对象；
+创建函数的几种方法一、函数声明123function a()&amp;#123;    //代码&amp;#125;">
+<meta property="og:updated_time" content="2015-11-06T03:41:12.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript第二弹——函数">
+<meta name="twitter:description" content="什么是函数函数是一块javascript代码，被定义一次，就可以执行和调用多次；函数也是js对象，所以也可以像对象那样操作和传递；所以我们也把函数称之为函数对象；
+创建函数的几种方法一、函数声明123function a()&amp;#123;    //代码&amp;#125;">
+  
+    <link rel="alternative" href="/atom.xml" title="前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xldmz.com1.z0.glb.clouddn.com/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+	<script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?7e9b774cafc3444168262f5a6fdc4ee9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wyang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">从前有座山山里住着一个大妖怪</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">存档</a></li>
+				        
+							<li><a href="/tags/essay">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wy-ang" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://www.weibo.com/wyang1117" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://wyang.club/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/badmonster" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/essay/" style="font-size: 20px;">essay</a> <a href="/tags/gulp/" style="font-size: 13.33px;">gulp</a> <a href="/tags/js/" style="font-size: 16.67px;">js</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 13.33px;">node</a> <a href="/tags/video/" style="font-size: 10px;">video</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.wincould.com/">前端嗅觉</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://bbs.wxqing.com/forum.php/">前端学堂</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.wxqing.com/">微心情</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wy.wxqing.com/">怪兽窝</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">爱民谣、爱电音、爱捣鼓，梦想是当一名作家，写着风花雪月的小说，过着自由散漫的生活，午后的阳光洒在她的身上，我们相视一笑。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wyang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wyang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">从前有座山山里住着一个大妖怪</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">存档</a></li>
+		        
+					<li><a href="/tags/essay">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wy-ang" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/wyang1117" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://wyang.club/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/badmonster" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-javascript第二弹——函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/06/javascript第二弹——函数/" class="article-date">
+  	<time datetime="2015-11-06T03:40:28.000Z" itemprop="datePublished">2015-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript第二弹——函数
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是函数">什么是函数</h3><p>函数是一块javascript代码，被定义一次，就可以<b style="color:#F00">执行</b>和<b style="color:#F00">调用</b>多次；函数也是js对象，所以也可以像对象那样操作和传递；所以我们也把函数称之为函数对象；</p>
+<h3 id="创建函数的几种方法">创建函数的几种方法</h3><p>一、函数声明<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>二、函数表达式</p>
+<p>1、自调用函数（立即执行）<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">()</span><span class="collection">&#123;</span><br><span class="line">    //代码</span><br><span class="line">&#125;</span>)</span><span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、 匿名函数表达式（将函数赋值给变量）<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3、作为返回对象<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三、函数构造器(不常用)<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br><span class="line"> <span class="comment">// 这两种方法等价</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="函数的调用方法">函数的调用方法</h3><p>1、直接调用<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fun</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、作为对象方法调用<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="keyword">fun</span><span class="literal">()</span>;</span><br></pre></td></tr></table></figure></p>
+<p>3、作为构造函数调用<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new <span class="function"><span class="title">fun</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>4、call/apply/bind(未开发)<br> <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span>.<span class="title">call</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="函数声明和函数表达式的区别">函数声明和函数表达式的区别</h3><p>函数声明会被前置<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span>&#123;</span>&#125;;&lt;-------|    <span class="comment">//相当于函数声明提前了</span></span><br><span class="line">a<span class="params">()</span>;    <span class="comment">//1            |</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span>&#123;</span>---------&gt;|</span><br><span class="line">    var b = <span class="number">1</span>;</span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(b)</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>函数表达式的变量会被提前</p>
+<pre><code><span class="keyword">var</span> a;&lt;-----------------------------------------|    <span class="comment">//变量被前置 值为undefined</span>
+a();    <span class="comment">//TypeError: a is not a function        |</span>
+<span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{----------------------------&gt;|
+    <span class="keyword">var</span> b = <span class="number">1</span>;
+    console.log(b);
+}
+</code></pre><h3 id="函数的参数是什么">函数的参数是什么</h3><p>函数的参数是用一个数组来表示的，可以在函数内部通过arguments对象来访问，但是arguments不是一个Array实例;</p>
+<h3 id="形参和实参">形参和实参</h3><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">person</span>(name,age)&#123;   //name,age为形参</span><br><span class="line">        return '名字：'+name+'年龄：'+age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>('wyang',26);    //实参</span><br></pre></td></tr></table></figure>
+<p>如上面代码中的<code>name</code>,<code>age</code>没有具体的值的，但是可以在函数体内进行一系列逻辑处理的参数就是形参，再调用函数时传入的参数如上面代码中的<code>wyang</code>,<code>26</code>是实实在在存在值的就是实参;</p>
+<h3 id="函数传参">函数传参</h3><ul>
+<li><h5 id="通过值传递参数">通过值传递参数</h5><p>在函数中调用的参数是函数的参数。<br>如果函数修改参数的值，将不会修改参数的初始值（在函数外定义）。<br>函数参数的改变不会影响函数外部的变量（局部变量）。</p>
+</li>
+<li><h5 id="通过对象传递参数">通过对象传递参数</h5><p>在JavaScript中，可以引用对象的值。<br>因此我们在函数内部修改对象的属性就会修改其初始的值。<br>修改对象属性可作用于函数外部（全局变量）。</p>
+</li>
+</ul>
+<h3 id="this">this</h3><blockquote>
+<p>全局中的<code>this</code>指向的是<code>window</code>，函数内的<code>this</code>也是指向<code>window</code>；<br>对象方法中的this指向该方法。</p>
+</blockquote>
+<p>函数对象赋值给对象属性的时候，this指向的是该对象<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name:'wyang'</span><br><span class="line">&#125;</span><br><span class="line">function <span class="keyword">person</span>()&#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;</span><br><span class="line">obj.sayNma = <span class="keyword">person</span>;</span><br><span class="line">obj.<span class="keyword">person</span>();    //wyang</span><br></pre></td></tr></table></figure></p>
+<p>对象原型链上的this<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    sayPro:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="string">'名字：'</span>+<span class="keyword">this</span>.name+<span class="string">'年龄：'</span>+<span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(obj);</span><br><span class="line">o.name = <span class="string">'wyang'</span>;</span><br><span class="line">o.age = <span class="number">26</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o.sayPro());    <span class="comment">//名字：wyang年龄：26</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="回调函数">回调函数</h3><p>一、在理解回调函数之前先理解下javascript里面<code>call()</code>这个方法；<br>语法：<code>call([thisObj[,arg1[, arg2[, [,.argN]]]]])</code><br>参数<br><code>thisObj</code><br>可选项。将被用作当前对象的对象。<br><code>arg1, arg2, , argN</code><br>可选项。将被传递方法参数序列。<br>说明<br><code>call</code> 方法可以用来代替另一个对象调用一个方法。<code>call</code> 方法可将一个函数的对象上下文从初始的上下文改变为由 <code>thisObj</code> 指定的新对象。</p>
+<p>如果没有提供 <code>thisObj</code> 参数，那么 <code>Global</code> 对象被用作 <code>thisObj</code>。</p>
+<p>上面的一堆我们用代码来简单梳理下：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">person</span>()&#123;</span><br><span class="line">    var name = 'wyang'; </span><br><span class="line">    var age = 26;</span><br><span class="line">    console.log(name+','+age);</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    var name = 'wangyang'; </span><br><span class="line">    var age = 27;</span><br><span class="line">    console.log(name+','+age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>.call(one);    //wyang,26</span><br></pre></td></tr></table></figure>
+<p>上面的例子是<code>person</code>把<code>one</code>替换掉了。所以输出的就是<code>wyang</code>和<code>26</code>;</p>
+<p>下面我们用<code>call</code>方法做一个继承的例子。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">person</span>()&#123;</span><br><span class="line">    this.name = 'wyang'; </span><br><span class="line">    this.age = 26;</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    <span class="keyword">person</span>.call(this);</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">one();    //wyang,age</span><br></pre></td></tr></table></figure>
+<p>上面例子<code>person</code>本身作为对象定义一个值为<code>wyang</code>的属性<code>name</code>；然后在<code>one</code>函数里通过<code>call</code>方法把<code>person</code>的属性继承给自己。调用<code>one</code>函数输出<code>wyang</code>；</p>
+<p>二、通过<code>call</code>方法实现的回调函数<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function  <span class="keyword">person</span>(callback)&#123;</span><br><span class="line">    console.log(name);</span><br><span class="line">    callback.call(this);</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    var name = 'wyang';</span><br><span class="line">    console.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>(one);    //wyang;wyang</span><br></pre></td></tr></table></figure></p>
+<p>上面例子中的<code>person</code>定义一个形参为<code>callback</code>；<br>通过<code>call</code>方法把形参<code>callback</code>替换掉自己；<br>函数<code>one</code>中命名一个变量<code>name</code>并设定值为<code>wyang</code>；<br>然后调用<code>person</code>函数，并把<code>one</code>函数作为参数传进去。<br>可以看到输出两次<code>wyang</code>;这说明在函数<code>person</code>里面接收到了<code>one</code>函数里面的<code>name</code>变量的值；<br>而<code>one</code>函数作为参数在<code>person</code>函数内通过<code>call</code>方法把<code>person</code>替换掉，在调用<code>person</code>函数的时候，<code>one</code>函数也被成功调用，然后成功输出；</p>
+<p>三、通过普通方式的回调</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function  <span class="keyword">person</span>(callback)&#123;</span><br><span class="line">    console.log(name);</span><br><span class="line">    callback();</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    var name = 'wyang';</span><br><span class="line">    console.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>(one);    //wyang;wyang</span><br></pre></td></tr></table></figure>
+<p>上面例子中我们把<code>call</code>方法去掉，直接在函数<code>person</code>内部调用参数<code>callback</code>；<br>然后把<code>one</code>函数作为参数传递进去；</p>
+<blockquote>
+<p>需要注意的是：javascript中的函数是对象,<code>one</code>作为一个函数名是对Function对象的引用，所以在<code>person</code>函数内部调用<code>callback</code>参数时，要加‘()’;不然传递的只是一个函数名而已，并不是函数对象本身；</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/30/javascript对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript第一弹——对象</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript第二弹——函数" data-title="javascript第二弹——函数" data-url="http://wyang.club/2015/11/06/javascript第二弹——函数/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 wyang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+  <script async src="http://7xldmz.com1.z0.glb.clouddn.com/js/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

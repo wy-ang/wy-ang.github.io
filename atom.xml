@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title><![CDATA[前端之路]]></title>
+  <subtitle><![CDATA[从前有座山山里住着一个大妖怪]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://wyang.club//"/>
+  <updated>2015-11-06T03:41:12.584Z</updated>
+  <id>http://wyang.club//</id>
+  
+  <author>
+    <name><![CDATA[wyang]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[javascript第二弹——函数]]></title>
+    <link href="http://wyang.club/2015/11/06/javascript%E7%AC%AC%E4%BA%8C%E5%BC%B9%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/"/>
+    <id>http://wyang.club/2015/11/06/javascript第二弹——函数/</id>
+    <published>2015-11-06T03:40:28.000Z</published>
+    <updated>2015-11-06T03:41:12.584Z</updated>
+    <content type="html"><![CDATA[<h3 id="什么是函数">什么是函数</h3><p>函数是一块javascript代码，被定义一次，就可以<b style="color:#F00">执行</b>和<b style="color:#F00">调用</b>多次；函数也是js对象，所以也可以像对象那样操作和传递；所以我们也把函数称之为函数对象；</p>
+<h3 id="创建函数的几种方法">创建函数的几种方法</h3><p>一、函数声明<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>二、函数表达式</p>
+<p>1、自调用函数（立即执行）<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span><span class="list">()</span><span class="collection">&#123;</span><br><span class="line">    //代码</span><br><span class="line">&#125;</span>)</span><span class="list">()</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、 匿名函数表达式（将函数赋值给变量）<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3、作为返回对象<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三、函数构造器(不常用)<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br><span class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">Function</span><span class="params">()</span>;</span></span><br><span class="line"> <span class="comment">// 这两种方法等价</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="函数的调用方法">函数的调用方法</h3><p>1、直接调用<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">fun</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、作为对象方法调用<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="keyword">fun</span><span class="literal">()</span>;</span><br></pre></td></tr></table></figure></p>
+<p>3、作为构造函数调用<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new <span class="function"><span class="title">fun</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>4、call/apply/bind(未开发)<br> <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span>.<span class="title">call</span><span class="params">()</span>;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="函数声明和函数表达式的区别">函数声明和函数表达式的区别</h3><p>函数声明会被前置<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span>&#123;</span>&#125;;&lt;-------|    <span class="comment">//相当于函数声明提前了</span></span><br><span class="line">a<span class="params">()</span>;    <span class="comment">//1            |</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span>&#123;</span>---------&gt;|</span><br><span class="line">    var b = <span class="number">1</span>;</span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(b)</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>函数表达式的变量会被提前</p>
+<pre><code><span class="keyword">var</span> a;&lt;-----------------------------------------|    <span class="comment">//变量被前置 值为undefined</span>
+a();    <span class="comment">//TypeError: a is not a function        |</span>
+<span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{----------------------------&gt;|
+    <span class="keyword">var</span> b = <span class="number">1</span>;
+    console.log(b);
+}
+</code></pre><h3 id="函数的参数是什么">函数的参数是什么</h3><p>函数的参数是用一个数组来表示的，可以在函数内部通过arguments对象来访问，但是arguments不是一个Array实例;</p>
+<h3 id="形参和实参">形参和实参</h3><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">person</span>(name,age)&#123;   //name,age为形参</span><br><span class="line">        return '名字：'+name+'年龄：'+age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>('wyang',26);    //实参</span><br></pre></td></tr></table></figure>
+<p>如上面代码中的<code>name</code>,<code>age</code>没有具体的值的，但是可以在函数体内进行一系列逻辑处理的参数就是形参，再调用函数时传入的参数如上面代码中的<code>wyang</code>,<code>26</code>是实实在在存在值的就是实参;</p>
+<h3 id="函数传参">函数传参</h3><ul>
+<li><h5 id="通过值传递参数">通过值传递参数</h5><p>在函数中调用的参数是函数的参数。<br>如果函数修改参数的值，将不会修改参数的初始值（在函数外定义）。<br>函数参数的改变不会影响函数外部的变量（局部变量）。</p>
+</li>
+<li><h5 id="通过对象传递参数">通过对象传递参数</h5><p>在JavaScript中，可以引用对象的值。<br>因此我们在函数内部修改对象的属性就会修改其初始的值。<br>修改对象属性可作用于函数外部（全局变量）。</p>
+</li>
+</ul>
+<h3 id="this">this</h3><blockquote>
+<p>全局中的<code>this</code>指向的是<code>window</code>，函数内的<code>this</code>也是指向<code>window</code>；<br>对象方法中的this指向该方法。</p>
+</blockquote>
+<p>函数对象赋值给对象属性的时候，this指向的是该对象<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name:'wyang'</span><br><span class="line">&#125;</span><br><span class="line">function <span class="keyword">person</span>()&#123;</span><br><span class="line">    return this.name;</span><br><span class="line">&#125;</span><br><span class="line">obj.sayNma = <span class="keyword">person</span>;</span><br><span class="line">obj.<span class="keyword">person</span>();    //wyang</span><br></pre></td></tr></table></figure></p>
+<p>对象原型链上的this<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    sayPro:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="string">'名字：'</span>+<span class="keyword">this</span>.name+<span class="string">'年龄：'</span>+<span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(obj);</span><br><span class="line">o.name = <span class="string">'wyang'</span>;</span><br><span class="line">o.age = <span class="number">26</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o.sayPro());    <span class="comment">//名字：wyang年龄：26</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="回调函数">回调函数</h3><p>一、在理解回调函数之前先理解下javascript里面<code>call()</code>这个方法；<br>语法：<code>call([thisObj[,arg1[, arg2[, [,.argN]]]]])</code><br>参数<br><code>thisObj</code><br>可选项。将被用作当前对象的对象。<br><code>arg1, arg2, , argN</code><br>可选项。将被传递方法参数序列。<br>说明<br><code>call</code> 方法可以用来代替另一个对象调用一个方法。<code>call</code> 方法可将一个函数的对象上下文从初始的上下文改变为由 <code>thisObj</code> 指定的新对象。</p>
+<p>如果没有提供 <code>thisObj</code> 参数，那么 <code>Global</code> 对象被用作 <code>thisObj</code>。</p>
+<p>上面的一堆我们用代码来简单梳理下：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">person</span>()&#123;</span><br><span class="line">    var name = 'wyang'; </span><br><span class="line">    var age = 26;</span><br><span class="line">    console.log(name+','+age);</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    var name = 'wangyang'; </span><br><span class="line">    var age = 27;</span><br><span class="line">    console.log(name+','+age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>.call(one);    //wyang,26</span><br></pre></td></tr></table></figure>
+<p>上面的例子是<code>person</code>把<code>one</code>替换掉了。所以输出的就是<code>wyang</code>和<code>26</code>;</p>
+<p>下面我们用<code>call</code>方法做一个继承的例子。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">person</span>()&#123;</span><br><span class="line">    this.name = 'wyang'; </span><br><span class="line">    this.age = 26;</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    <span class="keyword">person</span>.call(this);</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">one();    //wyang,age</span><br></pre></td></tr></table></figure>
+<p>上面例子<code>person</code>本身作为对象定义一个值为<code>wyang</code>的属性<code>name</code>；然后在<code>one</code>函数里通过<code>call</code>方法把<code>person</code>的属性继承给自己。调用<code>one</code>函数输出<code>wyang</code>；</p>
+<p>二、通过<code>call</code>方法实现的回调函数<br><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function  <span class="keyword">person</span>(callback)&#123;</span><br><span class="line">    console.log(name);</span><br><span class="line">    callback.call(this);</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    var name = 'wyang';</span><br><span class="line">    console.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>(one);    //wyang;wyang</span><br></pre></td></tr></table></figure></p>
+<p>上面例子中的<code>person</code>定义一个形参为<code>callback</code>；<br>通过<code>call</code>方法把形参<code>callback</code>替换掉自己；<br>函数<code>one</code>中命名一个变量<code>name</code>并设定值为<code>wyang</code>；<br>然后调用<code>person</code>函数，并把<code>one</code>函数作为参数传进去。<br>可以看到输出两次<code>wyang</code>;这说明在函数<code>person</code>里面接收到了<code>one</code>函数里面的<code>name</code>变量的值；<br>而<code>one</code>函数作为参数在<code>person</code>函数内通过<code>call</code>方法把<code>person</code>替换掉，在调用<code>person</code>函数的时候，<code>one</code>函数也被成功调用，然后成功输出；</p>
+<p>三、通过普通方式的回调</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function  <span class="keyword">person</span>(callback)&#123;</span><br><span class="line">    console.log(name);</span><br><span class="line">    callback();</span><br><span class="line">&#125;</span><br><span class="line">function one()&#123;</span><br><span class="line">    var name = 'wyang';</span><br><span class="line">    console.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">person</span>(one);    //wyang;wyang</span><br></pre></td></tr></table></figure>
+<p>上面例子中我们把<code>call</code>方法去掉，直接在函数<code>person</code>内部调用参数<code>callback</code>；<br>然后把<code>one</code>函数作为参数传递进去；</p>
+<blockquote>
+<p>需要注意的是：javascript中的函数是对象,<code>one</code>作为一个函数名是对Function对象的引用，所以在<code>person</code>函数内部调用<code>callback</code>参数时，要加‘()’;不然传递的只是一个函数名而已，并不是函数对象本身；</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="什么是函数">什么是函数</h3><p>函数是一块javascript代码，被定义一次，就可以<b style="color:#F00">执行</b>和<b style="color:#F00">调用</b>多次；函数也是js对象，所以也可以像对象那样操作和传递；所以我们也把函数称之为函数对象；</p>
+<h3 id="创建函数的几种方法">创建函数的几种方法</h3><p>一、函数声明<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]>
+    
+    </summary>
+    
+      <category term="js" scheme="http://wyang.club/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[javascript第一弹——对象]]></title>
+    <link href="http://wyang.club/2015/10/30/javascript%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://wyang.club/2015/10/30/javascript对象/</id>
+    <published>2015-10-30T09:15:43.000Z</published>
+    <updated>2015-11-06T03:50:08.375Z</updated>
+    <content type="html"><![CDATA[<h3 id="一、_什么是对象">一、 什么是对象</h3><pre><code>对象是包含一组变量（称为属性）和函数（称为方法）的集合的实例。
+javascript中大部分事物都是对象（有不同观点请留言讨论）
+javascript有很多内建对象
+javascript允许自定义对象
+对象只是带有属性和方法的特殊数据类型
+对象的属性是存储装载信息（属性值）的，可以理解为变量
+对象的方法是执行其内部所包含的代码块的，可以理解为函数
+</code></pre><blockquote>
+<p>注：以下所指对象均为自定义对象</p>
+</blockquote>
+<h3 id="二、_怎么创建对象">二、 怎么创建对象</h3><a id="more"></a>
+<p>1、实例创建</p>
+<pre><code><span class="comment">//创建一个对象的实例</span>
+<span class="keyword">var</span> handsomeMan = <span class="keyword">new</span> <span class="built_in">Object</span>();
+handsomeMan.name=<span class="string">'wyang'</span>;
+</code></pre><blockquote>
+<p>字面量写法如下：</p>
+</blockquote>
+<pre><code><span class="variable"><span class="keyword">var</span> handsomeMan</span> = {};
+</code></pre><p>2、工厂模式</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">handsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();
+    o.name = <span class="string">'wyang'</span>;
+    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);    <span class="comment">//wyang</span>
+    }
+    <span class="keyword">return</span> o;
+}
+<span class="keyword">var</span> me = handsomeMan();    <span class="comment">//经典工厂模式</span>
+<span class="keyword">var</span> me = <span class="keyword">new</span> handsomeMan();    <span class="comment">//混合工厂模式</span>
+me.sayName();
+</code></pre><blockquote>
+<p>为了避免重复创建<code>sayName</code>方法,把上面的代码做了如下改进：</p>
+</blockquote>
+<pre><code><span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.name;    <span class="comment">//wyang</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();
+    o.name = <span class="string">'wyang'</span>;
+    o.sayName = sayName;
+}
+<span class="keyword">var</span> me = HandsomeMan();
+me.sayName();
+</code></pre><p>3、构造函数</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">this</span>.name = <span class="string">'wyang'</span>;
+    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);    <span class="comment">//wyang</span>
+    }
+}
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><blockquote>
+<p>为了避免重复创建<code>sayName</code>方法,把上面的代码做了如下改进：</p>
+</blockquote>
+<pre><code><span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.name;    <span class="comment">//wyang</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span><span class="params">()</span></span>{
+    <span class="keyword">this</span>.name = <span class="string">'wyang'</span>;
+    <span class="keyword">this</span>.sayName = sayName;
+}
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><p>4、原型模式</p>
+<pre><code><span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">return</span> <span class="keyword">this</span>.name;    <span class="comment">//wyang</span>
+}
+<span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span><span class="params">()</span></span>{};
+HandsomeMan.prototype.name = <span class="string">'wyang'</span>;
+HandsomeMan.prototype.sayName = sayName;
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><p>5、混合模式（构造函数模式+原型模式）</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span>(<span class="params"></span>)</span>{
+    <span class="keyword">this</span>.name = <span class="string">'wyang'</span>;
+}
+HandsomeMan.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);    <span class="comment">//wyang</span>
+}
+<span class="keyword">var</span> me = <span class="keyword">new</span> HandsomeMan();
+me.sayName();
+</code></pre><h3 id="三、_对象的属性是什么？">三、 对象的属性是什么？</h3><blockquote>
+<p>属性是存储装载其所对应对象的一些信息的容器；<br>对象中的属性是无序的，每一个属性都有一个字符串key和对应的 value;<br>不管设置的属性是否是字符串，javascript都会把它转换为字符串;</p>
+</blockquote>
+<p>1、属性是可以动态添加或删除的。如下：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;<span class="comment">;</span></span><br><span class="line">obj.x = 1<span class="comment">;</span></span><br><span class="line">obj.y = 2<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、对象中的每一个属性都有很多的属性标签，比如：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">writable：能否修改属性的值; 默认值为 <span class="literal">true</span>;</span><br><span class="line">enumerable：能否通过 <span class="keyword">for</span>-<span class="keyword">in</span>循环返回属性（是否可枚举）; 默认值为 <span class="literal">true</span>;</span><br><span class="line">configurable：能否删除、重新定义、修改属性特性、把属性修改为访问器属性/数据属性（是否能够配置）; 默认值为<span class="literal">true</span>;</span><br><span class="line">value：属性的数据值；可读写; 默认值为 <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">get</span>/<span class="keyword">set</span>：</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="扩展：原型链">扩展：原型链</h4></li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HandsomeMan</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">HandsomeMan.prototype.name = <span class="string">'wyang'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例化对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> HandsomeMan();</span><br><span class="line">obj.age = <span class="number">26</span>;</span><br><span class="line">obj.hobby = <span class="string">'programme'</span>;</span><br><span class="line"></span><br><span class="line">obj.age    <span class="comment">//26</span></span><br><span class="line">obj.hobby    <span class="comment">//programme</span></span><br><span class="line">obj.name    <span class="comment">//wyang</span></span><br></pre></td></tr></table></figure>
+<p>1）、上面的例子我们先定义了一个<code>HandsomeMan</code>的函数对象；<code>HandsomeMan</code>自带了一个prototype属性，它的属性是对象属性;<br>2）、<code>HandsomeMan.prototype</code>是一个对象；我们把这个对象添加一个属性<code>name</code>并赋值为<code>wyang</code>;<br>3）、用构造器的方式构造了一个新的对象<code>obj</code>；然后给这个对象添加了两个属性并赋值；然后通过访问这两个属性得到属性值；<br>4）、<code>obj</code>这个对象的原型会指向构造器的属性也就是<code>HandsomeMan.prototype</code>;<br>4）、[重点]当用<code>obj.age</code>访问<code>age</code>属性时，发现<code>obj</code>上有<code>age</code>这个属性，所以就会返回<code>26</code>；<code>hobby</code>同理；但是当用<code>obj.name</code>来访问<code>name</code>时；发现<code>obj</code>上面没有<code>name</code>，这时它不会停止查找，而是继续向上查找他的原型也就是<code>HandsomeMan.prototype</code>；然后发现有<code>name</code>这个属性；所以返回<code>wyang</code>；</p>
+<blockquote>
+<p>如果给<code>obj.name</code>赋值，那么<code>HandsomeMan.prototype.name</code>的值会被修改么？</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj.name = <span class="string">'wangyang'</span>;</span><br><span class="line">obj.name    <span class="comment">//wangyang;</span></span><br><span class="line">HandsomeMan.prototype.name    <span class="comment">//wyang</span></span><br></pre></td></tr></table></figure>
+<p>从上面的例子可以看出，如果给<code>obj.name</code>赋值，<code>HandsomeMan.prototype.name</code>的值是不会被修改的。因为<code>obj</code>对象里面有<code>name</code>这个属性，所以不会向上查找；</p>
+<blockquote>
+<p>那么怎么再次通过<code>obj</code>对象拿到原型上的<code>name</code>呢？</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">delete</span> obj.<span class="keyword">name</span>;</span></span><br><span class="line">obj.name   //wyang</span><br></pre></td></tr></table></figure>
+<p>如上代码，通过删除<code>obj.name</code>后，就可以获得原型上的<code>name</code>；实际上这也就是原型链的继承；</p>
+<h3 id="四、_怎么给对象的属性赋值？">四、 怎么给对象的属性赋值？</h3><ul>
+<li>键值对结构用“：”赋值;</li>
+<li>动态结构用“=”赋值；</li>
+</ul>
+<h3 id="五、_如何操作对像的属性？">五、 如何操作对像的属性？</h3><p>1、读写对象的属性<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name <span class="symbol">:</span> <span class="string">'wyang'</span>,</span><br><span class="line">    age <span class="symbol">:</span> <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line">obj.name;    <span class="regexp">//wyang</span></span><br><span class="line">obj[<span class="string">'age'</span>];    <span class="regexp">//</span><span class="number">26</span></span><br><span class="line"></span><br><span class="line">obj.hobby = <span class="string">'programme'</span>;</span><br><span class="line">obj[<span class="string">'eat'</span>] = <span class="string">'food'</span>;    <span class="regexp">//</span>当需要拼接对象的属性名或者用<span class="string">``</span><span class="keyword">for</span> <span class="keyword">in</span><span class="string">``</span>遍历所有属性的时候用‘[]’，其余的场景推荐使用‘.’；</span><br></pre></td></tr></table></figure></p>
+<p>2、属性异常<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    <span class="attribute">age</span>: <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line">obj.name;    <span class="regexp">//</span><span class="literal">undefined</span></span><br><span class="line">obj.name.hobby    <span class="regexp">//</span><span class="attribute">TypeError</span>: Cannot read property <span class="string">'hobby'</span> <span class="keyword">of</span> <span class="literal">undefined</span></span><br><span class="line">obj.name.hobby = <span class="string">'programme'</span>;    <span class="regexp">//</span><span class="attribute">TypeError</span>: Cannot read property <span class="string">'hobby'</span> <span class="keyword">of</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure></p>
+<p>如果想对<code>obj.name</code>这个属性处理一些事情的话；需要先判断下<code>obj.name</code>是否存在：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var nh;     //var nh = obj &amp;&amp; obj.<span class="keyword">name</span> &amp;&amp; obj.<span class="keyword">name</span>.hobby;</span><br><span class="line"><span class="keyword">if</span>(obj.<span class="keyword">name</span>)&#123;</span><br><span class="line">    nh = obj.<span class="keyword">name</span>.hobby</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、删除属性<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name : <span class="string">'wyang'</span>,</span><br><span class="line">    age : <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span> obj.name    <span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> obj[<span class="string">'age'</span>]    <span class="comment">//true</span></span><br><span class="line">obj.name    <span class="comment">//undefined</span></span><br><span class="line">obj.age    <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">delete</span> obj.name    <span class="comment">//如果重复删除已经不存在的属性，不会做任何事情，但是属性已经不存在了，javascript仍然会返回true；</span></span><br></pre></td></tr></table></figure></p>
+<p>1）、delete 并不代表操作成功，只是表示这个对象上并不存在这个属性；<br>2）、<code>Object.prototype</code>不能够被删除，因为它的<code>configurable</code>为false；所以删除会返回false；</p>
+<ul>
+<li><h5 id="延伸：全局变量、局部变量、函数声明都不能通过delete被删除；">延伸：全局变量、局部变量、函数声明都不能通过<code>delete</code>被删除；</h5></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">delete</span> a;    <span class="comment">//false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">delete</span> b;</span><br><span class="line">&#125;</span><br><span class="line">a()    <span class="comment">//false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">delete</span> a    <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//隐式创建的变量可以被删除（不推荐使用）</span></span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">window</span>.a;    <span class="comment">//1</span></span><br><span class="line"><span class="keyword">delete</span>.a    <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>4、检测属性<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测对象上是否含有某个属性</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line">obj.name = <span class="string">'wyang'</span>;</span><br><span class="line">obj.age = <span class="number">26</span>;</span><br><span class="line"></span><br><span class="line"><span class="string">'name'</span> <span class="keyword">in</span> obj;    <span class="comment">//true  </span></span><br><span class="line"><span class="string">'hobby'</span> <span class="keyword">in</span> obj;    <span class="comment">//false</span></span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> obj;    <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">obj.hasOwnProperty(<span class="string">'name'</span>);    <span class="comment">//true    ‘obj’这个对象上包含‘name’这个属性；</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'toString'</span>);    <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面的例子可以看出来：<code>in</code>操作符是会通过原型链向上查找的，它是作用于整个原型链的，所以不管是这个对象上的属性还是原型链上的属性都会返回‘true’；<code>hasOwnProperty</code>操作符是针对于当前对象的，不会去通过原型链向上查找；上面例子的‘obj’这个对象上没有包含‘ toString’这个属性；所以返回<code>false</code>；它的原型链上才有‘ toString’这个属性；<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测对象上的某个属性是否可枚举</span></span><br><span class="line">obj.propertyIsEnumerable(<span class="string">'name'</span>);    <span class="comment">//true</span></span><br><span class="line">obj.propertyIsEnumerable(<span class="string">'toString'</span>);    <span class="comment">//false    ‘Object.pertotype’上的大部分标签的‘enumerable’都是false；</span></span><br></pre></td></tr></table></figure></p>
+<p>5、枚举属性<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name : <span class="string">'wyang'</span>,</span><br><span class="line">    age : <span class="number">26</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var <span class="variable">$property</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$property</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    console.log(<span class="variable">$property</span>);    //name、age</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面例子通过<code>for in</code>来枚举当前对象上可枚举的属性;</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var o = Object.create(obj);    //通过‘ Object.create’来船舰一个新对象，这个对象的原型指向‘obj’；</span><br><span class="line">o.hobby = <span class="string">'programme'</span>;    //默认可枚举</span><br><span class="line">var <span class="variable">$property</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$property</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    console.log(<span class="variable">$property</span>);    //name、age、hobby</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果只想处理‘o’这个对象上的属性，不想处理这个对象原型链上的属性呢？</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var o = Object.create(obj);    </span><br><span class="line">o.hobby = <span class="string">'programme'</span>;   </span><br><span class="line">var <span class="variable">$property</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$property</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    if(obj.hasOwnProperty(<span class="variable">$property</span>))&#123;    //只枚举当前对象上的属性，过滤掉这个对象原型链上的属性</span><br><span class="line">        console.log(<span class="variable">$property</span>);    //hobby</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6、属性的get/set方法<br>get：在读取属性时调用的函数，默认值为 undefined<br>set：在写入属性时调用的函数，默认值为 undefined<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name : <span class="string">'wyang'</span>,</span><br><span class="line">    <span class="keyword">get</span> age()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear() - <span class="number">1989</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> age(val)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'您不能修改年龄为'</span>+val+<span class="string">'岁！！！'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.age);    <span class="comment">//26</span></span><br><span class="line">obj.age = <span class="number">100</span>;    <span class="comment">//您不能修改年龄为100岁！！！</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.age);    <span class="comment">//26</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="六、什么是方法">六、什么是方法</h3><p>方法是能够在对象上执行的动作。说白了就是包含在对象中的函数</p>
+<h3 id="七、怎么定义对象方法">七、怎么定义对象方法</h3><blockquote>
+<p>暂且不表</p>
+</blockquote>
+<h3 id="八、如何调用对象的方法？">八、如何调用对象的方法？</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objectName.<span class="function"><span class="title">methodName</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="九、对象标签">九、对象标签</h3><p>对象级别的标签主要有三种：[[proto]]、[[class]]、[[extensible]]<br>1、原型链是通过<code>proto</code>这个标签来实现的<br>2、<code>class</code>表示对象是哪一个类型，没有直接的方式去查看或修改它;需要通过间接的手段；<br>3、<code>extensible</code>表示对象是否可扩展</p>
+<h3 id="十、对象序列化">十、对象序列化</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">  <span class="keyword">*</span>后端需要一个字符串格式的数据</span><br><span class="line">  <span class="keyword">*</span>/</span><br><span class="line">var obj = &#123;name:<span class="string">"wyang"</span>,age:26, hobby:[<span class="string">"programme"</span>,<span class="string">"eat"</span>],gf:null,single:true&#125;;</span><br><span class="line">JSON.stringify(obj);    //<span class="string">"&#123;"</span>name<span class="string">":"</span>wyang<span class="string">","</span>age<span class="string">":26, "</span>hobby<span class="string">":["</span>programme<span class="string">","</span>eat<span class="string">"],"</span>gf<span class="string">":null,"</span>single<span class="string">":true&#125;"</span></span><br><span class="line"></span><br><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">  <span class="keyword">*</span>坑：</span><br><span class="line">  <span class="keyword">*</span>1. 如果序列化的值是'undefined'，那么就不会出现在序列化的结果当中</span><br><span class="line">  <span class="keyword">*</span>2. 如果序列化的值是'NaN'、'Infinity'，那么会转换为'null'</span><br><span class="line">  <span class="keyword">*</span>3. 如果序列化的值是时间的话，会转换成UTC的时间格式</span><br><span class="line">  <span class="keyword">*</span>/</span><br><span class="line">var obj = &#123;name:'wyang',age:26, hobby:['programme','eat'],gf:null,single:true,love:undefined,a:NaN,b:Infinity,c:new Date()&#125;;</span><br><span class="line">JSON.stringify(obj);    //<span class="string">"&#123;"</span>name<span class="string">":"</span>wyang<span class="string">","</span>age<span class="string">":26, "</span>hobby<span class="string">":["</span>programme<span class="string">","</span>eat<span class="string">"],"</span>gf<span class="string">":null,"</span>single<span class="string">":true,"</span>a<span class="string">":null,"</span>b<span class="string">":null,"</span>c<span class="string">":"</span>Mon Nov 02 2015 11:39:51 GMT+0800 (中国标准时间)<span class="string">"&#125;"</span></span><br><span class="line"></span><br><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">  <span class="keyword">*</span>后端返回一个json格式的数据，变为js对象</span><br><span class="line">  <span class="keyword">*</span>/</span><br><span class="line">var obj = JOSN.parse('&#123;<span class="string">"name"</span>:<span class="string">"wyang"</span>&#125;');</span><br><span class="line">obj.name    //wyang;</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="一、_什么是对象">一、 什么是对象</h3><pre><code>对象是包含一组变量（称为属性）和函数（称为方法）的集合的实例。
+javascript中大部分事物都是对象（有不同观点请留言讨论）
+javascript有很多内建对象
+javascript允许自定义对象
+对象只是带有属性和方法的特殊数据类型
+对象的属性是存储装载信息（属性值）的，可以理解为变量
+对象的方法是执行其内部所包含的代码块的，可以理解为函数
+</code></pre><blockquote>
+<p>注：以下所指对象均为自定义对象</p>
+</blockquote>
+<h3 id="二、_怎么创建对象">二、 怎么创建对象</h3>]]>
+    
+    </summary>
+    
+      <category term="js" scheme="http://wyang.club/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移：激情在安稳中燃烧[发表于2014.7.23]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-7-23/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-7-23/</id>
+    <published>2015-09-15T02:15:50.000Z</published>
+    <updated>2015-09-15T02:21:23.345Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://ww2.sinaimg.cn/mw690/98d1cb80jw1eigz3m8s9tj21hc0xcap6.jpg" alt="激情在安稳中燃烧"></p>
+<h3 id="当所有的浮躁落寞为平静的时候，我知道我终于还是没能逃脱。如同帷幕落下，后面依旧忙碌。光鲜的背后是肮脏夹杂着不忍。——下面这条无节操的分界线告诉我们，前面这句话和以下内容毫无关联。">当所有的浮躁落寞为平静的时候，我知道我终于还是没能逃脱。如同帷幕落下，后面依旧忙碌。光鲜的背后是肮脏夹杂着不忍。——下面这条无节操的分界线告诉我们，前面这句话和以下内容毫无关联。</h3><p>当我踏进这个城市的时候，我没想过我要走多远。</p>
+<p>当下，我也只是在当下而已。</p>
+<p>激情、理想被现状裹得死死的。</p>
+<p>每天一小步，是人生的一大步。</p>
+<p>我在做的，微不足道。</p>
+<p>我活的，十分渺小。</p>
+<p>拼搏、奋斗被机会束缚的紧紧的。</p>
+<p>你怨天尤人，你不思进取。</p>
+<p>是的，因为我们活在当下。</p>
+<p>是的，我怕热我不进厨房。</p>
+<p>是的，我现在已经做好了一桌丰盛的佳肴。</p>
+<p>可你，风中的香味足以。</p>
+<hr>
+<p>ps：不良怪兽</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://ww2.sinaimg.cn/mw690/98d1cb80jw1eigz3m8s9tj21hc0xcap6.jpg" alt="激情在安稳中燃烧"></p>
+<h3 id="当所有的浮躁落寞为平静的时候，我知道我终于还是没能逃脱。如同帷幕落]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移：时光荏苒[发表于2014.7.25]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-7-25/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-7-25/</id>
+    <published>2015-09-15T02:14:50.000Z</published>
+    <updated>2015-09-15T02:15:35.481Z</updated>
+    <content type="html"><![CDATA[<p>我看到了，那年夏。<br>你的柔弱，你的刚毅。<br>我看到了，那年冬。<br>你的选择，你的凛然。<br>我看到了。<br>寒来暑往度七载。逝者如斯畏将来。<br>决绝是最好的开始，不是吗？<br>等待的不是结果，是信任。<br>结束的不是无责，是坦然。<br>我口渴却没有了拿起水杯的能力。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我看到了，那年夏。<br>你的柔弱，你的刚毅。<br>我看到了，那年冬。<br>你的选择，你的凛然。<br>我看到了。<br>寒来暑往度七载。逝者如斯畏将来。<br>决绝是最好的开始，不是吗？<br>等待的不是结果，是信任。<br>结束的不是无责，是坦然。<br>我口渴却没]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移[发表于2014.7.27]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-7-27/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-7-27/</id>
+    <published>2015-09-15T02:14:22.000Z</published>
+    <updated>2015-09-15T02:15:12.479Z</updated>
+    <content type="html"><![CDATA[<p>拥挤的人潮把我推向令我畏惧的地方<br>窃窃私语的喧哗<br>咄咄逼人的胆怯<br>上演着令人窒息的惬意<br>享受，是我当下唯一能做的<br>逃，像鸟兽般四散逃去<br>我木纳的的呆在原地<br>麻木？习惯？不得而知<br>冷冷的看着<br>我是透明的<br>来来往往无人问津<br>多么卑微的高傲<br>多么微不足道<br>聆听，是我现在唯一能做的。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>拥挤的人潮把我推向令我畏惧的地方<br>窃窃私语的喧哗<br>咄咄逼人的胆怯<br>上演着令人窒息的惬意<br>享受，是我当下唯一能做的<br>逃，像鸟兽般四散逃去<br>我木纳的的呆在原地<br>麻木？习惯？不得而知<br>冷冷的看着<br>我是透明的<br>来来往往无人]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移[发表于2014.7.30]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-7-30/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-7-30/</id>
+    <published>2015-09-15T02:13:51.000Z</published>
+    <updated>2015-09-15T02:14:09.553Z</updated>
+    <content type="html"><![CDATA[<p>在那一霎那突然感觉这个城市很陌生，你是一个看客，这座笼罩在阴雨中的城市。</p>
+<p>想起中学时期，一个学习很好，很文静的女孩。每逢下雨，她都会跑到操场去淋雨，张开双臂，抬头看天，雨滴拍打在脸上，哪一刻她会不会觉得她就是雨？她会不会已经忘记所有，置身其中，洗涮着灵魂？你不得而知。你只是愣愣的站在旁边，好像已经站了很久。</p>
+<p>情感是一个很奇怪的东西，有时好似灵魂出窍，瞬间把你带回到很久以前，那时那刻那地，你有一种想哭的冲动，却很温暖。或许是你在一个地方呆久了，你疲惫了，你厌倦了，所以你怀念了。</p>
+<p>但是生活还是要继续，你每天都会想着你要怎样的去进步，怎样的去改变。可是新一天的太阳升起的时候，你开始质疑昨天的不够努力，你开始筹划今天。周而复始，你得到的是只是你心灵上的负担或者释怀。</p>
+<p>怀念，现状纵横交错，你不分彼此，你好好生活。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在那一霎那突然感觉这个城市很陌生，你是一个看客，这座笼罩在阴雨中的城市。</p>
+<p>想起中学时期，一个学习很好，很文静的女孩。每逢下雨，她都会跑到操场去淋雨，张开双臂，抬头看天，雨滴拍打在脸上，哪一刻她会不会觉得她就是雨？她会不会已经忘记所有，置身其中，洗涮着灵魂？你不]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移：八月你好[发表于2014.8.1]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-8-1/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-8-1/</id>
+    <published>2015-09-15T02:09:50.000Z</published>
+    <updated>2015-09-15T02:11:03.647Z</updated>
+    <content type="html"><![CDATA[<h2 id="八月你好">八月你好</h2><p>我在这座城市，你在哪里，你过得好么，你会不会也是一个人。你会不会每天看书听音乐，想想自己。你会不会感到孤单。八月，我想你了。<br>有时候觉得你的感情太过细腻，总是让我欲拒还迎。有时候觉得你的想法太过独到，让我无法比拟。你炙热的拥抱着我，我想逃避，我不能抗拒。<br>八月，你会不会偶尔抬头看天。看那一朵朵精灵，消失在我触摸不到的边缘。你会不会把它们的轨迹记录下来，在我想你的时候传递给我。<br>我总是一个人默默的期盼，我担心失去了，就真的失去了。你带着阳光透过玻璃的棱角，融化着我的心。我怕我就这样的又一次被你感化。我怕我又一次的失去自我。<br>八月，我们一起走过的，我都还记得。这是我此生不可磨灭的。有时候的一瞬间我感觉我又回到了和你在一起的从前。人的情感真的很调皮，它会在你失神的瞬间，把你的灵魂抽离肉体带你看你回不去的过往，很温馨。这是你带给我的最美的礼物。谢谢你。<br>八月，你来了。我在这里。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="八月你好">八月你好</h2><p>我在这座城市，你在哪里，你过得好么，你会不会也是一个人。你会不会每天看书听音乐，想想自己。你会不会感到孤单。八月，我想你了。<br>有时候觉得你的感情太过细腻，总是让我欲拒还迎。有时候觉得你的想法太过独到，让我无法比拟。你炙热的]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移[发表于2014.8.30]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-8-30/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-8-30/</id>
+    <published>2015-09-15T02:09:09.000Z</published>
+    <updated>2015-09-15T02:09:29.798Z</updated>
+    <content type="html"><![CDATA[<p>我不知道我的选择是对还是错，但是如果我不走这一步，我会后悔。我会一直这样下去，这不是我想要的。</p>
+<p>窗外的雨淅淅沥沥，北漂三年一无所有，梦想遥不可及，我所憧憬的未来但愿是美好的。我现在能做的就是走好现在的每一步，不管对错，我都要一直走下去。</p>
+<p>我是一个急性子的人，这次我却成熟了好多。有时候蛮讨厌现在的自己，嫉恶如仇、爱瞎想、没自信、冲动、惶惶不可终日。我正在一点一点调整自己的心态。一点一点的改变成我想要的我。可是感性始终占据上风。</p>
+<p>我想这大概就叫做成长吧。</p>
+<p>我留下的是我青涩的回忆，</p>
+<p>我带走的是我固执的念头，</p>
+<p>你看到的是我胆怯的内心。</p>
+<p>其实，这都是幻想，创造着、毁灭着、彷徨着、前进着。一切都只是尘埃、缕念，无实物。</p>
+<p>炽热的星光，充斥着，眸已看不到。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我不知道我的选择是对还是错，但是如果我不走这一步，我会后悔。我会一直这样下去，这不是我想要的。</p>
+<p>窗外的雨淅淅沥沥，北漂三年一无所有，梦想遥不可及，我所憧憬的未来但愿是美好的。我现在能做的就是走好现在的每一步，不管对错，我都要一直走下去。</p>
+<p>我是一个]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客迁移[发表于2014.9.8]]]></title>
+    <link href="http://wyang.club/2015/09/15/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB-%E5%8F%91%E8%A1%A8%E4%BA%8E2014-9-8/"/>
+    <id>http://wyang.club/2015/09/15/博客迁移-发表于2014-9-8/</id>
+    <published>2015-09-15T02:07:48.000Z</published>
+    <updated>2015-09-15T02:08:35.111Z</updated>
+    <content type="html"><![CDATA[<p>月圆又月缺，<br>孤寂北漂人。<br>彷徨话决绝，<br>未来自己写。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>月圆又月缺，<br>孤寂北漂人。<br>彷徨话决绝，<br>未来自己写。</p>
+]]>
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[video]]></title>
+    <link href="http://wyang.club/2015/09/14/video/"/>
+    <id>http://wyang.club/2015/09/14/video/</id>
+    <published>2015-09-14T10:03:48.000Z</published>
+    <updated>2015-09-14T10:09:15.875Z</updated>
+    <content type="html"><![CDATA[<p>不知道好不好看：</p>
+<iframe height="397" width="707" src="http://7xldmz.com1.z0.glb.clouddn.com/videotrailer.mp4" frameborder="0" allowfullscreen></iframe>]]></content>
+    <summary type="html">
+    <![CDATA[<p>不知道好不好看：</p>
+<iframe height="397" width="707" src="http://7xldmz.com1.z0.glb.clouddn.com/videotrailer.mp4" frameborder="0" allowfullscree]]>
+    </summary>
+    
+      <category term="video" scheme="http://wyang.club/tags/video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[node+ajax获取并返回数据]]></title>
+    <link href="http://wyang.club/2015/09/10/node+ajax%E8%8E%B7%E5%8F%96%E5%B9%B6%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE/"/>
+    <id>http://wyang.club/2015/09/10/node+ajax获取并返回数据/</id>
+    <published>2015-09-10T12:04:56.000Z</published>
+    <updated>2015-09-10T12:13:52.240Z</updated>
+    <content type="html"><![CDATA[<h2 id="先代码记录，等玩熟练了，开始解析代码。">先代码记录，等玩熟练了，开始解析代码。</h2><p>server.js<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">	response.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>:<span class="string">'text/plain'</span>,<span class="string">'Access-Control-Allow-Origin'</span>:<span class="string">'http://localhost:63342'</span>&#125;);		<span class="comment">//63342端口为webstorm IDE生成</span></span><br><span class="line">	response.write(<span class="string">'nihao'</span>);</span><br><span class="line">	response.end();</span><br><span class="line">&#125;).listen(<span class="number">1337</span>,<span class="string">'localhost'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'開始監聽。。。'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'走起！'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>test.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">'.getData'</span>).live(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		$.ajax(&#123;</span><br><span class="line">			url:<span class="string">'http://localhost:1337'</span>,</span><br><span class="line">			type:<span class="string">'GET'</span>,</span><br><span class="line">			success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">'success!!!'</span>);</span><br><span class="line">				<span class="built_in">console</span>.log(data);</span><br><span class="line">				$(<span class="string">'#res'</span>).html(data);</span><br><span class="line">			&#125;,</span><br><span class="line">			error:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">'error!!!'</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)	</span><br><span class="line">	&#125;)</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>test.html</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery-1.8.3.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"test.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">class</span>=<span class="value">"getData"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"res"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="先代码记录，等玩熟练了，开始解析代码。">先代码记录，等玩熟练了，开始解析代码。</h2><p>server.js<br>]]>
+    
+    </summary>
+    
+      <category term="node" scheme="http://wyang.club/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[nodejs学习笔记]]></title>
+    <link href="http://wyang.club/2015/09/10/nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://wyang.club/2015/09/10/nodejs学习笔记/</id>
+    <published>2015-09-10T07:48:01.000Z</published>
+    <updated>2015-09-10T12:13:11.111Z</updated>
+    <content type="html"><![CDATA[<h1 id="初识nodejs">初识nodejs</h1><h3 id="安装">安装</h3><p>nodejs安装教程请查看<a href="http://wyang.club/2015/08/25/gulp%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">gulp安装教程</a>的第一步：安装Node<br><a id="more"></a></p>
+<h3 id="模块">模块</h3><ol>
+<li>在nodejs中，模块有三个预定义对象<code>require</code>,<code>exports</code>,<code>module</code>(貌似CMD都是这么搞的);</li>
+<li>用法</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);		<span class="comment">//require 加载模块</span></span><br><span class="line"></span><br><span class="line">exports.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; 		<span class="comment">//exports 暴露模块</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">&#125;</span><br><span class="line">exports.sayHello = sayHello;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  	<span class="comment">//module 我也不知道这个对象在Node中是干嘛的，目前还没用到，这个例子是替换当前模块的导出对象（把导出的对象换成函数）</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World!'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模块初始化">模块初始化</h3><p>一个模块中的JS代码仅在模块第一次被使用时执行一次，并在执行过程中初始化模块的导出对象。之后，缓存起来的导出对象被重复利用。</p>
+<h3 id="模块路径解析规则">模块路径解析规则</h3><ul>
+<li>内置模块</li>
+</ul>
+<p>如果传递给require函数的是NodeJS内置模块名称，不做路径解析，直接返回内部模块的导出对象，例如require(‘fs’)。</p>
+<ul>
+<li>node_modules目录</li>
+</ul>
+<p>NodeJS定义了一个特殊的node_modules目录用于存放模块。例如某个模块的绝对路径是/home/user/hello.js，在该模块中使用require(‘foo/bar’)方式加载模块时，则NodeJS依次尝试使用以下路径。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/home/</span>user<span class="regexp">/node_modules/</span>foo/bar</span><br><span class="line"><span class="regexp">/home/</span>node_modules<span class="regexp">/foo/</span>bar</span><br><span class="line"><span class="regexp">/node_modules/</span>foo/bar</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="初识nodejs">初识nodejs</h1><h3 id="安装">安装</h3><p>nodejs安装教程请查看<a href="http://wyang.club/2015/08/25/gulp%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">gulp安装教程</a>的第一步：安装Node<br>]]>
+    
+    </summary>
+    
+      <category term="node" scheme="http://wyang.club/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[mysql学习第一弹：搭建]]></title>
+    <link href="http://wyang.club/2015/09/09/mysql%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>http://wyang.club/2015/09/09/mysql搭建教程/</id>
+    <published>2015-09-09T11:13:07.000Z</published>
+    <updated>2015-09-10T12:16:30.375Z</updated>
+    <content type="html"><![CDATA[<h2 id="先简单记录下">先简单记录下</h2><ul>
+<li><a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">官网下载</a><br><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/myDownload.png" alt="my.ini"><a id="more"></a></li>
+<li><p>免安装版的，所以解压地址随便；<br>1.找到你解压的路径（如：D:\mysql-5.6.26-winx64）；<br>2.新建<code>my.ini</code>文件;配置如下（D:\mysql-5.6.26-winx64改为你自己的路径）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="preprocessor"># 设置mysql客户端默认字符集</span></span><br><span class="line">character-<span class="built_in">set</span>-server=utf8</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="preprocessor">#设置<span class="number">3306</span>端口</span></span><br><span class="line">port = <span class="number">3306</span> </span><br><span class="line"><span class="preprocessor"># 设置mysql的安装目录</span></span><br><span class="line">basedir=D:\mysql-<span class="number">5.6</span><span class="number">.26</span>-winx64</span><br><span class="line"><span class="preprocessor"># 设置mysql数据库的数据的存放目录</span></span><br><span class="line">datadir=D:\mysql-<span class="number">5.6</span><span class="number">.26</span>-winx64\data</span><br><span class="line"><span class="preprocessor"># 允许最大连接数</span></span><br><span class="line">max_connections=<span class="number">200</span></span><br><span class="line"><span class="preprocessor"># 服务端使用的字符集默认为<span class="number">8</span>比特编码的latin1字符集</span></span><br><span class="line">character-<span class="built_in">set</span>-server=utf8</span><br><span class="line"><span class="preprocessor"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="keyword">default</span>-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>管理员运行<code>cmd</code></p>
+</li>
+</ul>
+<ol>
+<li>启动数据库：net start mysql</li>
+<li>停止数据库：net stop mysql</li>
+<li>卸载：sc delete mysql</li>
+<li><p>进入数据库：mysql -uroot -p</p>
+<blockquote>
+<p>注：第一次没有密码，直接回车<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/root.png" alt="第一次没有密码，直接回车"></p>
+</blockquote>
+</li>
+<li><p>设置数据库密码：<br> mysql&gt;set password =password(‘你的密码’);<br> mysql&gt;flush privileges;</p>
+</li>
+<li>退出数据库：exit</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="先简单记录下">先简单记录下</h2><ul>
+<li><a href="http://dev.mysql.com/downloads/mysql/">官网下载</a><br><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/myDownload.png" alt="my.ini">]]>
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://wyang.club/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[我的随笔]]></title>
+    <link href="http://wyang.club/2015/08/28/%E6%88%91%E7%9A%84%E9%9A%8F%E7%AC%94/"/>
+    <id>http://wyang.club/2015/08/28/我的随笔/</id>
+    <published>2015-08-28T01:10:21.000Z</published>
+    <updated>2015-09-10T12:24:38.406Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/8589795_181404641174_2.png" alt="ali"><br><a id="more"></a><br><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/f603918fa0ec08fa14a4cfe75bee3d6d54fbdace.jpg" alt="ali"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/8589795_181404641174_2.png" alt="ali"><br>]]>
+    
+    </summary>
+    
+      <category term="essay" scheme="http://wyang.club/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[gulp安装教程]]></title>
+    <link href="http://wyang.club/2015/08/25/gulp%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>http://wyang.club/2015/08/25/gulp安装教程/</id>
+    <published>2015-08-25T07:15:04.000Z</published>
+    <updated>2015-08-28T01:21:12.416Z</updated>
+    <content type="html"><![CDATA[<p>此教程适合纯小白，大神请自飞。</p>
+<h2 id="目的：带你飞进前端自动化的世界，碾压传统开发方式">目的：带你飞进前端自动化的世界，碾压传统开发方式</h2><p>首先你要记住：整个过程so easy！<br>开撸：<br><a id="more"></a></p>
+<h3 id="第一步：安装Node">第一步：安装Node</h3><ul>
+<li><p>下载Node<br>gulp是基于Node环境的，所以我们需要去 <a href="http://nodejs.org" target="_blank" rel="external">Node官网</a> 下载Node(中间那个大大的绿色    <code>install</code> 按钮)，来搭建Node环境。</p>
+</li>
+<li><p>安装Node<br>Node的安装非常简单，一路Next到底；</p>
+</li>
+<li><p>检测Node<br>为了确保Node已经正确安装，我们需要执行以下几步：</p>
+</li>
+</ul>
+<ol>
+<li>我们打开开始菜单，点击所有程序，找到Node.js文件夹内的Node.js程序，然后运行它（当然你也可以使用windows自带的命令行工具cmd）。</li>
+<li>在命令行内输入如下命令</li>
+</ol>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v		<span class="comment">//然后回车（enter）</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果安装正确你会看到你所安装的Node的版本号；</p>
+</blockquote>
+<ul>
+<li>检测npm<br>首先说下npm，npm是基于命令行的node包管理工具，它可以将node的程序模块安装到项目中，在它的 <a href="https://npmjs.org/" target="_blank" rel="external">官网</a> 中可以查看和搜索所有可用的程序模块。我们刚才在安装Node的时候已经安装过npm了，接下来我们要做的只是检测是否安装正确（这一步个人觉得完全没必要，但是我是写给纯小白的，还是顺带说下吧。）</li>
+</ul>
+<p>在命令行内输入如下命令</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v		<span class="comment">//然后回车（enter）</span></span><br></pre></td></tr></table></figure>
+<p>同上得到版本号为安装正确；</p>
+<blockquote>
+<p>按照以上步骤若没得到版本号，请自行卸载Node，重新安装；</p>
+</blockquote>
+<h3 id="第二步：安装gulp">第二步：安装gulp</h3><p>首先自建一个文件夹，比如在D盘新建一个叫test的文件夹；然后：</p>
+<ul>
+<li>在命令行中定位到你所建的文件夹；命令如下</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">D</span>:		<span class="comment">//回车（enter）</span></span><br><span class="line"><span class="keyword">cd</span> <span class="keyword">test</span>		<span class="comment">//回车（enter）</span></span><br></pre></td></tr></table></figure>
+<p>这样就定位到test文件夹内了</p>
+<ul>
+<li>然后开始安装gulp啦，继续在刚才的命令行内输入如下代码（也可以新建命令行，因为这是全局安装，命令行的文件夹定位并不能决定它的安装位置）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> gulp -<span class="keyword">g</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>-g 表示全局安装，方便任何项目都能够使用它</li>
+<li>install是npm执行的安装命令</li>
+</ol>
+</blockquote>
+<ul>
+<li>检测gulp是否安装正确</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">gulp</span> -v</span><br></pre></td></tr></table></figure>
+<p>若看到版本号，表示安装成功；若没有重装咯。</p>
+<ul>
+<li>接下来在本地项目中（也就是刚才新建的test文件夹内）安装gulp；</li>
+</ul>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp —-<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>—-save-dev是用来表明项目依赖于gulp；</p>
+</blockquote>
+<p>这时我们发现test文件夹内已经多了一个名为<code>node_modules</code>的文件夹；这表明安装成功了。</p>
+<h3 id="第三步：生成package-json文件">第三步：生成package.json文件</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br></pre></td></tr></table></figure>
+<p>然后一路回车（enter），这是你发现test文件夹内已经多了一个名为package.json的文件；这个文件内的<code>devDependencies</code>是空白的，这里我们先记下等会要用上</p>
+<h3 id="第四步：安装gulp插件">第四步：安装gulp插件</h3><p>到目前为止我们的gulp已经安装完成，下面我们说下gulp插件，告诉大家如何在项目中运用这些插件；</p>
+<ul>
+<li>比较长用的插件有：</li>
+</ul>
+<ol>
+<li>gulp-htmlmin       //压缩html</li>
+<li>gulp-minify-css  //压缩css</li>
+<li>gulp-uglify      //压缩js</li>
+<li>gulp-jshint        //检测js</li>
+<li>gulp-rename      //重命名</li>
+<li>gulp-concat      //合并文件</li>
+</ol>
+<ul>
+<li>安装这些插件：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> gulp-htmlmin gulp-minify-css gulp-uglify gulp-jshint gulp-jshint gulp-rename gulp-<span class="keyword">concat</span> <span class="comment">--save-dev</span></span></span><br></pre></td></tr></table></figure>
+<p>然后回车（enter），这时打开test/node_modules文件夹，你会发现这些插件都已经在里面啦，打开package.json文件，找到<code>devDependencies</code>,里面已经生成好了插件的名称以及版本号；这得力于–save-dev；</p>
+<h3 id="第五步：配置gulpfile-js文件">第五步：配置gulpfile.js文件</h3><p>在项目根目录（test文件夹）建立gulpfile.js文件</p>
+<p>配置如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 gulp及组件</span></span><br><span class="line"><span class="keyword">var</span> gulp    = <span class="built_in">require</span>(<span class="string">'gulp'</span>),                 <span class="comment">//基础库</span></span><br><span class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),         <span class="comment">//压缩html</span></span><br><span class="line">    minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>),    <span class="comment">//压缩css</span></span><br><span class="line">    uglify  = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),          <span class="comment">//压缩js</span></span><br><span class="line">    jshint = <span class="built_in">require</span>(<span class="string">'gulp-jshint'</span>),           <span class="comment">//检查js</span></span><br><span class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),           <span class="comment">//重命名</span></span><br><span class="line">    concat  = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>),          <span class="comment">//合并文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩html</span></span><br><span class="line">gulp.task(<span class="string">'htmlmin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.html'</span>)      <span class="comment">//压缩的文件</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/html'</span>))   <span class="comment">//输出文件夹</span></span><br><span class="line">    .pipe(htmlmin());   <span class="comment">//执行压缩</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩css</span></span><br><span class="line">gulp.task(<span class="string">'minifycss'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.css'</span>)      <span class="comment">//压缩的文件</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/css'</span>))   <span class="comment">//输出文件夹</span></span><br><span class="line">    .pipe(minifycss());   <span class="comment">//执行压缩</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// js处理</span></span><br><span class="line">gulp.task(<span class="string">'minifyjs'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.src(<span class="string">'src/*.js'</span>)</span><br><span class="line">    .pipe(concat(<span class="string">'main.js'</span>))    <span class="comment">//合并所有js到main.js</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/js'</span>))    <span class="comment">//输出main.js到文件夹</span></span><br><span class="line">    .pipe(rename(&#123;suffix: <span class="string">'.min'</span>&#125;))   <span class="comment">//rename压缩后的文件名</span></span><br><span class="line">    .pipe(uglify())    <span class="comment">//压缩</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">'minified/js'</span>));  <span class="comment">//输出</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行压缩前，先删除文件夹里的内容</span></span><br><span class="line">gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">    del([<span class="string">'minified/css'</span>, <span class="string">'minified/js'</span>], cb)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认命令，在命令行中输入gulp后，执行的就是这个命令</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.start(<span class="string">'minifycss'</span>, <span class="string">'minifyjs'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认任务</span></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.run(<span class="string">'htmlmin'</span>, <span class="string">'minifycss'</span>, <span class="string">'minifyjs'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听文件变化 运行语句 gulp watch</span></span><br><span class="line">    gulp.watch(<span class="string">'minified/js/*.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        gulp.run(<span class="string">'htmlmin'</span>, <span class="string">'minifycss'</span>, <span class="string">'minifyjs'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>此教程适合纯小白，大神请自飞。</p>
+<h2 id="目的：带你飞进前端自动化的世界，碾压传统开发方式">目的：带你飞进前端自动化的世界，碾压传统开发方式</h2><p>首先你要记住：整个过程so easy！<br>开撸：<br>]]>
+    
+    </summary>
+    
+      <category term="gulp" scheme="http://wyang.club/tags/gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[前端工程化：在gulp中顺序执行任务]]></title>
+    <link href="http://wyang.club/2015/08/25/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%9A%E5%9C%A8gulp%E4%B8%AD%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1/"/>
+    <id>http://wyang.club/2015/08/25/前端工程化：在gulp中顺序执行任务/</id>
+    <published>2015-08-25T05:51:54.000Z</published>
+    <updated>2015-08-28T01:21:06.082Z</updated>
+    <content type="html"><![CDATA[<p>gulp是前端开发过程中对代码进行构建(Build)的工具，类似于Java世界中的Ant或者Maven。与Ant或Maven类似，在用gulp进行build时，经常需要顺序执行任务：在前一个任务彻底结束后才开始下一个任务。比如，在进行新的一次LESS编译前，首先需要保证删除上一次编译的结果。也即，对于以下两个gulp任务：<br><a id="more"></a><br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(<span class="symbol">'gulp'</span>),</span><br><span class="line">    less = require(<span class="symbol">'gulp</span>-less'),</span><br><span class="line">    clean = require(<span class="symbol">'gulp</span>-clean');</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="symbol">'compileLESS'</span>, <span class="keyword">function</span><span class="literal">()</span>&#123;</span><br><span class="line">    gulp.src(<span class="symbol">'sample</span>.less')</span><br><span class="line">        .pipe(less<span class="literal">()</span>)</span><br><span class="line">        .pipe(gulp.dest(<span class="symbol">'sample</span>.css'));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="symbol">'clean'</span>, <span class="keyword">function</span><span class="literal">()</span>&#123;</span><br><span class="line">    gulp.src(<span class="symbol">'sample</span>.css', &#123; read:<span class="literal">false</span> &#125;)</span><br><span class="line">        .pipe(clean<span class="literal">()</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>必须保证’clean’任务执行完毕后才开始进行’compileLESS’任务。</p>
+
+<h2 id="gulp中的顺序执行方案">gulp中的顺序执行方案</h2><p>在gulp对任务的定义中(gulp.task)，可以声明任务之间的依赖。比如，可以声明任务’compileLESS’依赖于’clean’:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'compileLESS'</span>, [<span class="string">'clean'</span>], <span class="function">function</span>()&#123;</span><br><span class="line">    <span class="comment">//compile LESS file...</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, <span class="function">function</span>()&#123;</span><br><span class="line">    <span class="tag">gulp</span><span class="class">.src</span>(<span class="string">'sample.css'</span>, &#123; <span class="attribute">read</span>:false &#125;)</span><br><span class="line">        <span class="class">.pipe</span>(<span class="function">clean</span>());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在声明任务依赖后，可以保证’clean’定义的function执行完毕后，’compileLESS’定义的function才开始执行。</p>
+<p>不过，即使定义了任务依赖，对于上述例子我们依然会发现：有时，需要清理的文件尚未删除干净，用于编译的任务就已经开始生成文件了；这在文件较多的项目环境下尤为常见。原因在于，对’clean’定义的function而言，虽然函数本身已经执行完毕了，但是文件删除操作可能仍在进行 — gulp任务中的操作大多数都是数据流(Stream)的操作，其操作进度与函数执行无关。</p>
+<p>如果需要在文件彻底清理后才开始执行’compileLESS’任务，则需要在’clean’任务中进行特殊编码：令其返回最终的数据流(Stream)对象：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'compileLESS'</span>, [<span class="string">'clean'</span>], <span class="function">function</span>()&#123;</span><br><span class="line">    <span class="comment">//compile LESS file...</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, <span class="function">function</span>()&#123;</span><br><span class="line">    <span class="tag">return</span> <span class="tag">gulp</span><span class="class">.src</span>(<span class="string">'sample.css'</span>, &#123; <span class="attribute">read</span>:false &#125;)</span><br><span class="line">        <span class="class">.pipe</span>(<span class="function">clean</span>());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="问题根源">问题根源</h2><p>应该承认，这样的一种依赖定义方式是不直观的、令人困惑的。然而思考之后会发现，对于这个问题，不能简单的用”bug”来进行总结。</p>
+<p>问题的难点在于：如何在一个任务运行系统中监听数据流的结束？对于数据流而言，代码语句的执行结束仅仅意味着数据操作的开始，唯一能确定数据操作结束的是最后一个数据流所触发的end事件；因此，只有想办法监听到这个end事件，才有可能实现真正意义上的任务依赖。而在任务定义的函数中返回最后一个数据流，是一个相对来说使用起来最方便的方案。</p>
+<p>事实上，gulp中的任务运行系统并不是自己实现的，而是直接使用了orchestrator。在gulp的源代码中可以发现，gulp继承了orchestrator，而gulp.task仅仅只是orchestrator.add的别名而已：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gulp source code</span></span><br><span class="line"><span class="keyword">var</span> util = <span class="keyword">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="keyword">var</span> Orchestrator = <span class="keyword">require</span>(<span class="string">'orchestrator'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Gulp</span><span class="params">()</span> <span class="comment">&#123;</span><br><span class="line">  Orchestrator.call(this);</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">util</span>.<span class="title">inherits</span><span class="params">(Gulp, Orchestrator)</span>;</span></span><br><span class="line"></span><br><span class="line">Gulp.prototype.task = Gulp.prototype.<span class="keyword">add</span>;</span><br></pre></td></tr></table></figure>
+<p>在orchestrator中，解决上述任务依赖的方式有三种：</p>
+<ol>
+<li>在任务定义的function中返回一个数据流，当该数据流的end事件触发时，任务结束。</li>
+<li>在任务定义的function中返回一个promise对象，当该promise对象resolve时，任务结束。</li>
+<li>在任务定义的function中传入callback变量，当callback()执行时，任务结束。</li>
+</ol>
+<p>gulp脚本中可以使用这三种方法来实现任务依赖，不过由于gulp中的任务大多是数据流操作，因此以第一种方法为主。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>gulp是前端开发过程中对代码进行构建(Build)的工具，类似于Java世界中的Ant或者Maven。与Ant或Maven类似，在用gulp进行build时，经常需要顺序执行任务：在前一个任务彻底结束后才开始下一个任务。比如，在进行新的一次LESS编译前，首先需要保证删除上一次编译的结果。也即，对于以下两个gulp任务：<br>]]>
+    
+    </summary>
+    
+      <category term="gulp" scheme="http://wyang.club/tags/gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[deposit]]></title>
+    <link href="http://wyang.club/2015/08/19/deposit/"/>
+    <id>http://wyang.club/2015/08/19/deposit/</id>
+    <published>2015-08-19T07:59:36.000Z</published>
+    <updated>2015-08-28T01:21:04.785Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">&lt;input type=<span class="string">"hidden"</span> id=<span class="string">"deposit"</span> /&gt;</span><br><span class="line"></span><br><span class="line">js:</span><br><span class="line">var deposit = <span class="function"><span class="keyword">function</span><span class="params">(e)</span>&#123;</span></span><br><span class="line">   $<span class="params">('#deposit')</span>.val<span class="params">(e)</span>;</span><br><span class="line">   var a = $<span class="params">('#deposit')</span>.val<span class="params">()</span>;</span><br><span class="line">   console.<span class="built_in">log</span><span class="params">(a)</span>; <span class="comment">//10</span></span><br><span class="line">&#125;</span><br><span class="line">deposit<span class="params">(<span class="number">10</span>)</span>;</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span cl]]>
+    </summary>
+    
+      <category term="js" scheme="http://wyang.club/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[recursive]]></title>
+    <link href="http://wyang.club/2015/08/19/recursive/"/>
+    <id>http://wyang.club/2015/08/19/recursive/</id>
+    <published>2015-08-19T07:40:07.000Z</published>
+    <updated>2015-08-28T01:21:07.202Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var recursive = <span class="function"><span class="keyword">function</span><span class="params">(a)</span>&#123;</span></span><br><span class="line">   <span class="keyword">if</span><span class="params">(a&gt;<span class="number">0</span>)</span>&#123;</span><br><span class="line">      recursive<span class="params">(a-<span class="number">1</span>)</span>;	</span><br><span class="line">      console.<span class="built_in">log</span><span class="params">(a)</span>; <span class="comment">//1-10</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">recursive<span class="params">(<span class="number">10</span>)</span>;</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span cl]]>
+    </summary>
+    
+      <category term="js" scheme="http://wyang.club/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[callback]]></title>
+    <link href="http://wyang.club/2015/08/18/callback/"/>
+    <id>http://wyang.club/2015/08/18/callback/</id>
+    <published>2015-08-18T09:52:31.000Z</published>
+    <updated>2015-08-28T01:21:08.273Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span><span class="params">(e,callback)</span></span>&#123;</span><br><span class="line">  <span class="keyword">callback</span>(e);</span><br><span class="line">&#125;</span><br><span class="line">a(<span class="number">1</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">  console.log(e); <span class="comment">//1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class=]]>
+    </summary>
+    
+      <category term="js" scheme="http://wyang.club/tags/js/"/>
+    
+  </entry>
+  
+</feed>
