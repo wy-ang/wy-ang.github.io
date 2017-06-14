@@ -1,0 +1,568 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="essay," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="本文将阐述在和业务方协作开发项目时遇到的问题及解决方案
+业务方关系要让业务方明确团队的定位,明白团队和他们之间的关系,明白我们团队不是执行者,我们和业务方之间是协作关系,我们共同的目的是共同把产品做好
+沟通出入口&amp;emsp;要明确项目的出入口是谁,出入口只能有一个,避免造成信息不同步或者不一致从而产生的分歧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目协作">
+<meta property="og:url" content="http://wyang.vip/2017/06/14/项目协作/index.html">
+<meta property="og:site_name" content="wyang">
+<meta property="og:description" content="本文将阐述在和业务方协作开发项目时遇到的问题及解决方案
+业务方关系要让业务方明确团队的定位,明白团队和他们之间的关系,明白我们团队不是执行者,我们和业务方之间是协作关系,我们共同的目的是共同把产品做好
+沟通出入口&amp;emsp;要明确项目的出入口是谁,出入口只能有一个,避免造成信息不同步或者不一致从而产生的分歧">
+<meta property="og:updated_time" content="2017-06-14T08:33:18.382Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目协作">
+<meta name="twitter:description" content="本文将阐述在和业务方协作开发项目时遇到的问题及解决方案
+业务方关系要让业务方明确团队的定位,明白团队和他们之间的关系,明白我们团队不是执行者,我们和业务方之间是协作关系,我们共同的目的是共同把产品做好
+沟通出入口&amp;emsp;要明确项目的出入口是谁,出入口只能有一个,避免造成信息不同步或者不一致从而产生的分歧">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 项目协作 | wyang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wyang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">把心静下来，积累沉淀。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                项目协作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-14T16:30:11+08:00" content="2017-06-14">
+              2017-06-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文将阐述在和业务方协作开发项目时遇到的问题及解决方案</p>
+<h1 id="业务方"><a href="#业务方" class="headerlink" title="业务方"></a>业务方</h1><h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><p>要让业务方明确团队的定位,明白团队和他们之间的关系,明白我们团队不是执行者,我们和业务方之间是协作关系,我们共同的目的是共同把产品做好</p>
+<h2 id="沟通"><a href="#沟通" class="headerlink" title="沟通"></a>沟通</h2><h3 id="出入口"><a href="#出入口" class="headerlink" title="出入口"></a>出入口</h3><p>&emsp;要明确项目的出入口是谁,出入口只能有一个,避免造成信息不同步或者不一致从而产生的分歧<br><a id="more"></a></p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>&emsp;1. 明确这个项目的需求谁说了算,做事之前也一定要和产品确定我们要做的事是不是产品想要的(产品没有想法的情况下,引导产品按照我们的想法来)</p>
+<p>&emsp;2. 在项目进行中产品更改需求一定要通过邮件将需求变更抄送给该项目的各方领导层(可以做一个需求变更模版来记录每次的需求变更),以备不时之需.</p>
+<h3 id="信息同步粒度-周期"><a href="#信息同步粒度-周期" class="headerlink" title="信息同步粒度/周期"></a>信息同步粒度/周期</h3><p>&emsp;1. 业务方参与成员信息同步<br>&emsp;&emsp;一定要在项目前期确定业务方参与该项目的全部人员(包含产品,UI,测试,市场,运营等),还要确定后期会不会由其他人员介入,项目经理负责掌握业务方参项人员变动信息</p>
+<p>&emsp;2. 业务方出入口人员变动<br>&emsp;&emsp;要及时和业务方沟通,明确后续接盘负责人/出入口的人员,还要确定该负责人/出入口人员对项目的了解程度,如果不够了解,我们可以拒绝</p>
+<p>&emsp;3. 出入口人员变更导致需求更改<br>&emsp;&emsp;祥参需求项</p>
+<p>&emsp;4. 业务方团队内部信息不同步导致的项目延期等问题<br>&emsp;&emsp;尝试和出入口人员沟通并如实将情况通过邮件方式抄送给该项目的各方领导层</p>
+<h3 id="项目资料-资源版本"><a href="#项目资料-资源版本" class="headerlink" title="项目资料/资源版本"></a>项目资料/资源版本</h3><p>&emsp;1. 立项前要求业务方提供项目开发的必备资料,同时确定原型/PRD等资料是否是最终版,如果不是最终版,要确定后期需求变更是否会影响主流程,否则拒绝立项<br>&emsp;2. 开发过程遇到需求变更时要和出入口人员沟通使其同意按照小版本迭代的方式去变更需求(同时还要考虑实际场景,需求是否合理).</p>
+<h1 id="团队内部"><a href="#团队内部" class="headerlink" title="团队内部"></a>团队内部</h1><h2 id="项目预期"><a href="#项目预期" class="headerlink" title="项目预期"></a>项目预期</h2><p>在做项目之前首先想下你对这个项目的预期是什么?想从项目中收获到什么?做完项目有没有收获到?把自己收获的能不能以文档的形式写出来?能否把收获的东西分享出来?能否在团队中推进你收获到的?</p>
+<h2 id="信息同步"><a href="#信息同步" class="headerlink" title="信息同步"></a>信息同步</h2><p>项目经理要把获取到的信息及时与团队成员同步,团队内部信息一定要保持高频率的同步,这个需要项目经理培养团队成员这种意识.</p>
+<h2 id="开发细则透明化"><a href="#开发细则透明化" class="headerlink" title="开发细则透明化"></a>开发细则透明化</h2><p>参项人员在项目准备编码前将自己的开发过程以任务的形式写在worktile中对应的项目里面(后端人员可以是用例的形式),开发工程中把每天要开发的任务复制到每日工作计划里面,这样能够让参项的其他人员知道其他人的开发节奏,并且能很好的执行配合</p>
+<h2 id="心理问题"><a href="#心理问题" class="headerlink" title="心理问题"></a>心理问题</h2><p>参与实际开发的团队成员在项目周期较长/较复杂或者项目无味的时候,对项目有抵触心理的时候怎么处理?<br>在进入研发阶段的时候,项目经理要时刻关注参项成员的状态,包括和人沟通时的语气,做事的态度,代码的质量,怠工等等,发现问题及时跟该成员沟通,以此消除对项目的抵触心理,确保项目质量与进度,参项成员若发现其他成员有这种想象也可以找该成员进行沟通,其实出现这种问题只能说明自己没有想明白自己能够在项目中获得什么</p>
+<h2 id="关于加班的问题"><a href="#关于加班的问题" class="headerlink" title="关于加班的问题"></a>关于加班的问题</h2><p>首先我们不鼓励加班,如果你一天安排的工作已经做完,并且能够保证后续工作不会影响项目进度,自身因素不会成为项目的风险点,那么你可以下班就回家陪老婆孩子了.</p>
+<h2 id="产品-or-项目"><a href="#产品-or-项目" class="headerlink" title="产品 or 项目"></a>产品 or 项目</h2><p>当你知道你要和团队成员一起做一件事的时候,首先你要明白你做的是什么?是项目还是产品?<br>项目:我们按照产品经理需求,项目经理的安排把手头上的工作做好,保质保量的完成工作,项目能够如期上线,线上运行良好<br>产品:我们做的产品被投放到市场,能够经过市场验证,能够得到大量用户,能够体现社会价值,我们自身的价值也就得到了体验<br>产品 or 项目?你选哪个?你以什么样的态度去做?</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/essay/" rel="tag">#essay</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/06/javascript第二弹——函数/" rel="next" title="javascript第二弹——函数">
+                <i class="fa fa-chevron-left"></i> javascript第二弹——函数
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg"
+               alt="wyang" />
+          <p class="site-author-name" itemprop="name">wyang</p>
+          <p class="site-description motion-element" itemprop="description">javascript | css | css3 | html | html5 | web前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#业务方"><span class="nav-number">1.</span> <span class="nav-text">业务方</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关系"><span class="nav-number">1.1.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#沟通"><span class="nav-number">1.2.</span> <span class="nav-text">沟通</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#出入口"><span class="nav-number">1.2.1.</span> <span class="nav-text">出入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需求"><span class="nav-number">1.2.2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息同步粒度-周期"><span class="nav-number">1.2.3.</span> <span class="nav-text">信息同步粒度/周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目资料-资源版本"><span class="nav-number">1.2.4.</span> <span class="nav-text">项目资料/资源版本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#团队内部"><span class="nav-number">2.</span> <span class="nav-text">团队内部</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目预期"><span class="nav-number">2.1.</span> <span class="nav-text">项目预期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息同步"><span class="nav-number">2.2.</span> <span class="nav-text">信息同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发细则透明化"><span class="nav-number">2.3.</span> <span class="nav-text">开发细则透明化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#心理问题"><span class="nav-number">2.4.</span> <span class="nav-text">心理问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于加班的问题"><span class="nav-number">2.5.</span> <span class="nav-text">关于加班的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品-or-项目"><span class="nav-number">2.6.</span> <span class="nav-text">产品 or 项目</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wyang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
