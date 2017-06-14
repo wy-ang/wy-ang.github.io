@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mysql," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,22 +84,28 @@
 
 
 
-<meta name="description" content="先简单记录下
-官网下载">
+<meta name="description" content="出现该问题的原因是ssh-keygen没有加入Path环境变量，系统就执行不了这个命令，解决步骤：
+
+点击“计算机”，或者使用Everything软件搜索ssh-keygen，然后复制所在路径；
+右击“计算机”，属性–&amp;gt;高级系统设置–&amp;gt;环境变量–&amp;gt;系统变量,找到Path变量，进行编辑，End到最后，输入分号，粘贴复制的ssh-keygen所在的路径，保存；
+重启cmd，执行ssh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql学习第一弹：搭建">
-<meta property="og:url" content="http://wyang.vip/2015/09/09/mysql搭建教程/index.html">
+<meta property="og:title" content="Git生成密钥，出现ssh-keygen不是内部或外部命令">
+<meta property="og:url" content="http://wyang.vip/2017/06/14/Git生成密钥，出现ssh-keygen不是内部或外部命令/index.html">
 <meta property="og:site_name" content="wyang">
-<meta property="og:description" content="先简单记录下
-官网下载">
-<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/img/myDownload.png">
-<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/img/root.png">
-<meta property="og:updated_time" content="2015-09-10T12:16:30.000Z">
+<meta property="og:description" content="出现该问题的原因是ssh-keygen没有加入Path环境变量，系统就执行不了这个命令，解决步骤：
+
+点击“计算机”，或者使用Everything软件搜索ssh-keygen，然后复制所在路径；
+右击“计算机”，属性–&amp;gt;高级系统设置–&amp;gt;环境变量–&amp;gt;系统变量,找到Path变量，进行编辑，End到最后，输入分号，粘贴复制的ssh-keygen所在的路径，保存；
+重启cmd，执行ssh">
+<meta property="og:updated_time" content="2017-06-14T09:11:01.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql学习第一弹：搭建">
-<meta name="twitter:description" content="先简单记录下
-官网下载">
-<meta name="twitter:image" content="http://7xldmz.com1.z0.glb.clouddn.com/img/myDownload.png">
+<meta name="twitter:title" content="Git生成密钥，出现ssh-keygen不是内部或外部命令">
+<meta name="twitter:description" content="出现该问题的原因是ssh-keygen没有加入Path环境变量，系统就执行不了这个命令，解决步骤：
+
+点击“计算机”，或者使用Everything软件搜索ssh-keygen，然后复制所在路径；
+右击“计算机”，属性–&amp;gt;高级系统设置–&amp;gt;环境变量–&amp;gt;系统变量,找到Path变量，进行编辑，End到最后，输入分号，粘贴复制的ssh-keygen所在的路径，保存；
+重启cmd，执行ssh">
 
 
 
@@ -117,7 +123,7 @@
   };
 </script>
 
-  <title> mysql学习第一弹：搭建 | wyang </title>
+  <title> Git生成密钥，出现ssh-keygen不是内部或外部命令 | wyang </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +243,7 @@
             
             
               
-                mysql学习第一弹：搭建
+                Git生成密钥，出现ssh-keygen不是内部或外部命令
               
             
           </h1>
@@ -249,8 +255,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-09T19:13:07+08:00" content="2015-09-09">
-              2015-09-09
+            <time itemprop="dateCreated" datetime="2017-06-14T17:04:11+08:00" content="2017-06-14">
+              2017-06-14
             </time>
           </span>
 
@@ -277,26 +283,17 @@
       
 
       
-        <h2 id="先简单记录下"><a href="#先简单记录下" class="headerlink" title="先简单记录下"></a>先简单记录下</h2><ul>
-<li><a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">官网下载</a><br><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/myDownload.png" alt="my.ini"><a id="more"></a></li>
-<li><p>免安装版的，所以解压地址随便；<br>1.找到你解压的路径（如：D:\mysql-5.6.26-winx64）；<br>2.新建<code>my.ini</code>文件;配置如下（D:\mysql-5.6.26-winx64改为你自己的路径）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">#设置3306端口</span><br><span class="line">port = 3306 </span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=D:\mysql-5.6.26-winx64</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=D:\mysql-5.6.26-winx64\data</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>管理员运行<code>cmd</code></p>
-</li>
-</ul>
+        <p>出现该问题的原因是ssh-keygen没有加入Path环境变量，系统就执行不了这个命令，解决步骤：</p>
 <ol>
-<li>启动数据库：net start mysql</li>
-<li>停止数据库：net stop mysql</li>
-<li>卸载：sc delete mysql</li>
-<li><p>进入数据库：mysql -uroot -p</p>
-<blockquote>
-<p>注：第一次没有密码，直接回车<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/img/root.png" alt="第一次没有密码，直接回车"></p>
-</blockquote>
-</li>
-<li><p>设置数据库密码：<br> mysql&gt;set password =password(‘你的密码’);<br> mysql&gt;flush privileges;</p>
-</li>
-<li>退出数据库：exit</li>
+<li>点击“计算机”，或者使用Everything软件搜索ssh-keygen，然后复制所在路径；</li>
+<li>右击“计算机”，属性–&gt;高级系统设置–&gt;环境变量–&gt;系统变量,找到Path变量，进行编辑，End到最后，输入分号，粘贴复制的ssh-keygen所在的路径，保存；</li>
+<li>重启cmd，执行ssh-keygen,成功！</li>
+</ol>
+<h1 id="生成秘钥添加到github"><a href="#生成秘钥添加到github" class="headerlink" title="生成秘钥添加到github"></a>生成秘钥添加到github</h1><p>在cmd或者终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>一路Enter过来就好，待秘钥生成完毕，会得到两个文件<code>id_rsa</code>和<code>id_rsa.pub</code>。</li>
+<li>用带格式的记事本打开<code>id_rsa.pub</code>，<code>Ctrl + a</code>复制里面的所有内容，然后进入<a href="https://github.com/settings/ssh：" target="_blank" rel="external">https://github.com/settings/ssh：</a></li>
+<li>将复制的内容粘贴到Key的输入框，Title随便写（只要你看到这个title知道是那个ssh就好），点击Add SSH key按钮即可。</li>
 </ol>
 
       
@@ -317,28 +314,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/mysql/" rel="tag">#mysql</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/28/我的随笔/" rel="next" title="我的随笔">
-                <i class="fa fa-chevron-left"></i> 我的随笔
+              <a href="/2017/06/14/项目协作/" rel="next" title="项目协作">
+                <i class="fa fa-chevron-left"></i> 项目协作
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/09/10/nodejs学习笔记/" rel="prev" title="nodejs学习笔记">
-                nodejs学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -445,7 +432,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#先简单记录下"><span class="nav-number">1.</span> <span class="nav-text">先简单记录下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生成秘钥添加到github"><span class="nav-number">1.</span> <span class="nav-text">生成秘钥添加到github</span></a></li></ol></div>
             
           </div>
         </section>
