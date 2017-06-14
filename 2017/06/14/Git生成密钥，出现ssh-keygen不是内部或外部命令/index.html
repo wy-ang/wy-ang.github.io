@@ -98,7 +98,7 @@
 点击“计算机”，或者使用Everything软件搜索ssh-keygen，然后复制所在路径；
 右击“计算机”，属性–&amp;gt;高级系统设置–&amp;gt;环境变量–&amp;gt;系统变量,找到Path变量，进行编辑，End到最后，输入分号，粘贴复制的ssh-keygen所在的路径，保存；
 重启cmd，执行ssh">
-<meta property="og:updated_time" content="2017-06-14T09:13:26.710Z">
+<meta property="og:updated_time" content="2017-06-14T09:15:13.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git生成密钥，出现ssh-keygen不是内部或外部命令">
 <meta name="twitter:description" content="出现该问题的原因是ssh-keygen没有加入Path环境变量，系统就执行不了这个命令，解决步骤：
@@ -287,11 +287,13 @@
 <ol>
 <li>点击“计算机”，或者使用Everything软件搜索ssh-keygen，然后复制所在路径；</li>
 <li>右击“计算机”，属性–&gt;高级系统设置–&gt;环境变量–&gt;系统变量,找到Path变量，进行编辑，End到最后，输入分号，粘贴复制的ssh-keygen所在的路径，保存；</li>
-<li>重启cmd，执行ssh-keygen,成功！</li>
-</ol>
-<h3 id="生成秘钥添加到github"><a href="#生成秘钥添加到github" class="headerlink" title="生成秘钥添加到github"></a>生成秘钥添加到github</h3><p>在cmd或者终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>一路Enter过来就好，待秘钥生成完毕，会得到两个文件<code>id_rsa</code>和<code>id_rsa.pub</code>。</li>
+<li><p>重启cmd，执行ssh-keygen,成功！</p>
+<a id="more"></a>
+<h3 id="生成秘钥添加到github"><a href="#生成秘钥添加到github" class="headerlink" title="生成秘钥添加到github"></a>生成秘钥添加到github</h3><p>在cmd或者终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一路Enter过来就好，待秘钥生成完毕，会得到两个文件<code>id_rsa</code>和<code>id_rsa.pub</code>。</p>
+</li>
 <li>用带格式的记事本打开<code>id_rsa.pub</code>，<code>Ctrl + a</code>复制里面的所有内容，然后进入<a href="https://github.com/settings/ssh" target="_blank" rel="external">https://github.com/settings/ssh</a></li>
 <li>将复制的内容粘贴到Key的输入框，Title随便写（只要你看到这个title就知道是那个ssh就好），点击Add SSH key按钮即可。</li>
 </ol>
