@@ -1,0 +1,624 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅
+作为Linux小白，安装Linux环境是学习Linux的第一步,Oracle VM VirtualBox虚拟机的安装这里就不讲了，网上有教程，而且安装简单。
+
+第一步 ：新建虚拟电脑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Oracle VM VirtualBox安装centos6.7教程">
+<meta property="og:url" content="http://wyang.vip/2017/08/01/基于Oracle-VM-VirtualBox安装centos6-7教程/index.html">
+<meta property="og:site_name" content="wyang">
+<meta property="og:description" content="人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅
+作为Linux小白，安装Linux环境是学习Linux的第一步,Oracle VM VirtualBox虚拟机的安装这里就不讲了，网上有教程，而且安装简单。
+
+第一步 ：新建虚拟电脑">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/1.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/2.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/3.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/4.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/5.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/6.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/7.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/7s.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/8.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/10.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/11.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/11ss.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/12a.png">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/12.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/13.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/14.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/15.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/16.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/17.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/18.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/19.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/20.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/21.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/22.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/23.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/24.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/25.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/26.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/27.jpg">
+<meta property="og:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/28.jpg">
+<meta property="og:updated_time" content="2017-08-01T08:32:12.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Oracle VM VirtualBox安装centos6.7教程">
+<meta name="twitter:description" content="人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅
+作为Linux小白，安装Linux环境是学习Linux的第一步,Oracle VM VirtualBox虚拟机的安装这里就不讲了，网上有教程，而且安装简单。
+
+第一步 ：新建虚拟电脑">
+<meta name="twitter:image" content="http://7xldmz.com1.z0.glb.clouddn.com/image/png/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 基于Oracle VM VirtualBox安装centos6.7教程 | wyang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wyang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">把心静下来，积累沉淀。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于Oracle VM VirtualBox安装centos6.7教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-01T14:37:40+08:00" content="2017-08-01">
+              2017-08-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅"><a href="#人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅" class="headerlink" title="人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅"></a>人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅</h3><blockquote>
+<p>作为Linux小白，安装Linux环境是学习Linux的第一步,Oracle VM VirtualBox虚拟机的安装这里就不讲了，网上有教程，而且安装简单。</p>
+</blockquote>
+<h1 id="第一步-：新建虚拟电脑"><a href="#第一步-：新建虚拟电脑" class="headerlink" title="第一步 ：新建虚拟电脑"></a>第一步 ：新建虚拟电脑</h1><a id="more"></a>
+<p>点击Oracle VM VirtualBox虚拟机（以下简称OVM）左上角的新建按钮弹出新建虚拟电脑窗口（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/1.png" alt="新建虚拟电脑第一步"></p>
+<p>名称、类型、版本的选项就按照上图中的设置即可，设置完之后点击下一步跳转到如下图窗口<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/2.png" alt="新建虚拟电脑第二步"></p>
+<p>这一步根据自己的需求自行设置内存大小,一般默认就好（软件已经根据电脑内存自动分配好了），点击下一步跳转到如下图窗口<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/3.png" alt="新建虚拟电脑第三步"></p>
+<p>选择现在创建虚拟硬盘后点击创建，跳转到创建虚拟硬盘窗口（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/4.png" alt="创建虚拟硬盘第一步"></p>
+<p>默认选择第一个然后点击下一步跳转到如下图窗口<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/5.png" alt="创建虚拟硬盘第一步"></p>
+<p>选择固定大小，点击下一步跳转到如下图窗口<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/6.png" alt="创建虚拟硬盘第一步"></p>
+<p>上图中第一个文本框内的文件名可以随便输（建议英文），第二个设置虚拟硬盘大小可根据自己的实际情况设置，也可以默认（软件默认已经根据电脑的硬盘情况分配好了），设置好后点击创建，然后会弹出一个创建虚拟硬盘的进度条（如下图），等待两分钟左右。<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/7.jpg" alt="创建虚拟硬盘第一步"></p>
+<blockquote>
+<p>第一步 ：新建虚拟电脑结束</p>
+</blockquote>
+<h1 id="第二步：设置虚拟电脑系统"><a href="#第二步：设置虚拟电脑系统" class="headerlink" title="第二步：设置虚拟电脑系统"></a>第二步：设置虚拟电脑系统</h1><blockquote>
+<p>我们创建好虚拟电脑后，就要开始设置虚拟电脑啦。</p>
+</blockquote>
+<p>右键点击已经创建好的虚拟电脑，选择设置（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/7s.png" alt="设置虚拟电脑第一步"></p>
+<p>点击设置弹出虚拟电脑设置窗口,然后点击系统（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/8.jpg" alt="创建虚拟硬盘第二步"></p>
+<p>上图中各设置项按照图中的设置即可（注意启动顺序的位置一定要按照图中的位置设置不能乱），点击OK保存，然后选择网络（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/10.jpg" alt="创建虚拟硬盘第三步"></p>
+<p>连接方式选择桥接网卡，点击OK保存，然后选择存储（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/11.jpg" alt="创建虚拟硬盘第四步"></p>
+<p>点击控制器，然后点击第一个加号，然后弹出选择磁盘窗口（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/11ss.png" alt="创建虚拟硬盘第五步"></p>
+<p>点击选择磁盘，选择电脑中的centos文件（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/12a.png" alt="创建虚拟硬盘第六步"></p>
+<p>选择完碟片后点击OK。</p>
+<blockquote>
+<p>第二步：设置虚拟电脑系统结束</p>
+</blockquote>
+<h1 id="第三步：安装系统"><a href="#第三步：安装系统" class="headerlink" title="第三步：安装系统"></a>第三步：安装系统</h1><p>选中创建的虚拟电脑，然后点击左上角的启动会弹出如下图窗口<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/12.jpg" alt="安装系统第一步"></p>
+<p>选择第一个，然后跳转如下图（等待两三分钟，喝杯茶）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/13.jpg" alt="安装系统第一步"></p>
+<p>上图走完后会跳转到如下图所示界面<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/14.jpg" alt="安装系统第一步"></p>
+<p>选择skip（跳过），然后出现如下图所示界面（等待两三分钟）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/15.jpg" alt="安装系统第一步"></p>
+<p>上图走完之后，界面就跳转到如下图所示<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/16.jpg" alt="安装系统第一步"></p>
+<p>点击next<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/17.jpg" alt="安装系统第一步"></p>
+<p>选择简体中文，点击next<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/18.jpg" alt="安装系统第一步"></p>
+<p>选择美国英语式，点击下一步<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/19.jpg" alt="安装系统第一步"></p>
+<p>选择基本存储设备，弹出存储设备警告窗口（如下图）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/20.jpg" alt="安装系统第一步"></p>
+<p>选择是，忽略所有数据<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/21.jpg" alt="安装系统第一步"></p>
+<p>起个名字，继续下一步，<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/22.jpg" alt="安装系统第一步"></p>
+<p>默认，下一步<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/23.jpg" alt="安装系统第一步"></p>
+<p>设置你的根账号和密码（请牢记你的账号和密码，很重要）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/24.jpg" alt="安装系统第一步"></p>
+<p>选择替换现有的Linux系统，然后下一步<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/25.jpg" alt="安装系统第一步"></p>
+<p>选择将修改写入磁盘，然后就让它自己跑吧（再喝一杯茶）<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/26.jpg" alt="安装系统第一步"></p>
+<p>恭喜你大功告成<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/27.jpg" alt="安装系统第一步"></p>
+<p>可以开始书写优雅的命令啦^_^<br><img src="http://7xldmz.com1.z0.glb.clouddn.com/image/png/28.jpg" alt="安装系统第一步"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/14/Git生成密钥，出现ssh-keygen不是内部或外部命令/" rel="next" title="Git生成密钥，出现ssh-keygen不是内部或外部命令">
+                <i class="fa fa-chevron-left"></i> Git生成密钥，出现ssh-keygen不是内部或外部命令
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xldmz.com1.z0.glb.clouddn.com/img/tx.jpg"
+               alt="wyang" />
+          <p class="site-author-name" itemprop="name">wyang</p>
+          <p class="site-description motion-element" itemprop="description">javascript | css | css3 | html | html5 | web前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅"><span class="nav-number">1.</span> <span class="nav-text">人的大脑适合创造，不适合记忆，所以撰写此文档以便日后查阅</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步-：新建虚拟电脑"><span class="nav-number"></span> <span class="nav-text">第一步 ：新建虚拟电脑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步：设置虚拟电脑系统"><span class="nav-number"></span> <span class="nav-text">第二步：设置虚拟电脑系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三步：安装系统"><span class="nav-number"></span> <span class="nav-text">第三步：安装系统</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wyang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
